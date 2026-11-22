@@ -1,0 +1,1969 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15223f">
+<title>Chabad Invites</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5efe1; --surface:#fffcf4; --surface-2:#efe7d4; --ink:#1a2238; --muted:#646a79; --line:#e4dac4;
+  --hero:#15223f; --hero-ink:#f6efdc; --hero-muted:#b9bfd0; --hero-line:rgba(246,239,220,.22);
+  --gold:#c9a238; --gold-ink:#7a5c10; --on-gold:#1d1604;
+  --primary:#15223f; --primary-ink:#fbf6e8;
+  --c-yes:#2c7a4b; --b-yes:#dcefe2;
+  --c-maybe:#8f6206; --b-maybe:#f6e8c4;
+  --c-sent:#2d5893; --b-sent:#dfe8f5;
+  --c-todo:#5f6574; --b-todo:#e9e3d5;
+  --c-no:#9e3f38; --b-no:#f4dfdb;
+  --t-yes:#5fbf85; --t-maybe:#e2b84a; --t-sent:#86a9dc; --t-no:#d98078; --t-todo:rgba(246,239,220,.16);
+  --g0:#2d5893; --g1:#2c7a4b; --g2:#a0700a; --g3:#9e3f38; --g4:#6b4fa0; --g5:#1f7a7a; --g6:#b0527a; --g7:#5f6574;
+  --shadow:0 1px 0 rgba(21,34,63,.05), 0 10px 24px -16px rgba(21,34,63,.35);
+  --scrim:rgba(15,22,40,.45);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1424; --surface:#172036; --surface-2:#1f2a44; --ink:#ece5d3; --muted:#a2a8b8; --line:#2a3552;
+    --hero:#1a2747; --hero-ink:#f3ecd8; --hero-muted:#aab2c8; --hero-line:rgba(243,236,216,.2);
+    --gold:#d9b553; --gold-ink:#e6c86e; --on-gold:#1d1604;
+    --primary:#d9b553; --primary-ink:#141b2e;
+    --c-yes:#7fd29f; --b-yes:#183527;
+    --c-maybe:#e8c46a; --b-maybe:#3a2f12;
+    --c-sent:#9dbbe8; --b-sent:#1c2c4a;
+    --c-todo:#b3b8c5; --b-todo:#242e48;
+    --c-no:#ec9a92; --b-no:#3d2024;
+    --g0:#8fb0e3; --g1:#7fd29f; --g2:#e8c46a; --g3:#ec9a92; --g4:#bba3e6; --g5:#6ccaca; --g6:#e99cbd; --g7:#b3b8c5;
+    --shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 24px -16px rgba(0,0,0,.6);
+    --scrim:rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --surface:#172036; --surface-2:#1f2a44; --ink:#ece5d3; --muted:#a2a8b8; --line:#2a3552;
+  --hero:#1a2747; --hero-ink:#f3ecd8; --hero-muted:#aab2c8; --hero-line:rgba(243,236,216,.2);
+  --gold:#d9b553; --gold-ink:#e6c86e; --on-gold:#1d1604;
+  --primary:#d9b553; --primary-ink:#141b2e;
+  --c-yes:#7fd29f; --b-yes:#183527; --c-maybe:#e8c46a; --b-maybe:#3a2f12; --c-sent:#9dbbe8; --b-sent:#1c2c4a;
+  --c-todo:#b3b8c5; --b-todo:#242e48; --c-no:#ec9a92; --b-no:#3d2024;
+  --g0:#8fb0e3; --g1:#7fd29f; --g2:#e8c46a; --g3:#ec9a92; --g4:#bba3e6; --g5:#6ccaca; --g6:#e99cbd; --g7:#b3b8c5;
+  --shadow:0 1px 0 rgba(0,0,0,.2), 0 10px 24px -16px rgba(0,0,0,.6);
+  --scrim:rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 Rubik,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+[hidden]{display:none !important}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hero);color:var(--hero-ink);display:flex;align-items:center;gap:10px;padding:10px 14px 10px 18px}
+.brand{font:700 21px/1.1 "Frank Ruhl Libre",Georgia,"Times New Roman",serif;letter-spacing:.2px;margin:0;flex:1;min-width:0}
+.brand small{display:block;font:400 12.5px/1.3 Rubik,system-ui,sans-serif;color:var(--hero-muted);margin-top:2px}
+.sync{font-size:12.5px;color:var(--hero-muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.sync::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--t-yes)}
+.sync.saving::before{background:var(--t-maybe)}
+.sync.off::before{background:var(--t-no)}
+.iconbtn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;border:0;background:transparent;color:inherit}
+.top .iconbtn:hover{background:var(--hero-line)}
+
+main{max-width:680px;margin:0 auto;padding:16px 16px calc(96px + env(safe-area-inset-bottom,0px))}
+.banner{max-width:680px;margin:12px auto 0;padding:0 16px}
+.banner p{margin:0;background:var(--b-maybe);color:var(--c-maybe);border-radius:12px;padding:10px 14px;font-size:14.5px}
+.loading{color:var(--muted);text-align:center;padding:48px 0}
+
+.pagehead{display:flex;align-items:flex-end;gap:10px;margin:4px 0 14px}
+.pagehead h1{font:900 30px/1.05 "Frank Ruhl Libre",Georgia,serif;margin:0;flex:1}
+.pagehead h1 span{display:block;font:400 14px/1.4 Rubik,system-ui,sans-serif;color:var(--muted);margin-top:4px}
+h2.sec{font:700 20px/1.2 "Frank Ruhl Libre",Georgia,serif;margin:28px 0 10px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:500;font-size:15px;text-decoration:none;white-space:nowrap}
+.btn.primary{background:var(--primary);color:var(--primary-ink);border-color:transparent}
+.btn.gold{background:var(--gold);color:var(--on-gold);border-color:transparent;font-weight:600}
+.btn.quiet{background:transparent}
+.btn.danger{color:var(--c-no);border-color:var(--b-no);background:transparent}
+.btn.sm{min-height:38px;padding:0 12px;font-size:14px}
+.btn.wide{width:100%}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn .i{width:18px;height:18px}
+.linkbtn{border:0;background:none;padding:6px 0;color:var(--gold-ink);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+
+/* event cards */
+.evlist{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.evcard{display:flex;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:0;overflow:hidden;color:inherit}
+.stub{flex:none;width:74px;background:var(--hero);color:var(--hero-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;border-right:2px dashed var(--bg)}
+.stub b{font:900 32px/1 "Frank Ruhl Libre",Georgia,serif;color:var(--gold)}
+.stub span{font-size:12.5px;color:var(--hero-muted);margin-top:4px}
+.evbody{padding:13px 15px 14px;min-width:0;flex:1}
+.evbody .ttl{display:block;margin:0;font:700 19px/1.2 "Frank Ruhl Libre",Georgia,serif}
+.evbody .meta{display:block;margin:3px 0 0;color:var(--muted);font-size:14px}
+.evbody .tl{margin:9px 0 0;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 12px}
+.dot{display:inline-flex;align-items:center;gap:6px}
+.dot::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.k-yes{color:var(--c-yes)} .k-maybe{color:var(--c-maybe)} .k-sent{color:var(--c-sent)} .k-no{color:var(--c-no)} .k-todo{color:var(--c-todo)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:26px 20px;text-align:center}
+.empty h2{font:700 21px/1.2 "Frank Ruhl Libre",Georgia,serif;margin:0 0 6px}
+.empty p{margin:0 auto 16px;color:var(--muted);max-width:40ch}
+.morelink{text-align:center;margin:18px 0 0}
+
+/* event hero */
+.evtop{display:flex;align-items:center;justify-content:space-between;margin:-4px 0 10px}
+.back{display:inline-flex;align-items:center;gap:4px;border:0;background:none;color:var(--muted);padding:8px 6px 8px 0;font-weight:500}
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:20px;padding:18px 18px 18px;box-shadow:var(--shadow)}
+.h-date{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--gold);font-weight:500;font-size:14.5px}
+.chip{display:inline-block;font-size:12px;font-weight:500;padding:2px 9px;border-radius:99px;background:var(--hero-line);color:var(--hero-ink)}
+.h-title{font:900 31px/1.08 "Frank Ruhl Libre",Georgia,serif;margin:6px 0 4px;overflow-wrap:anywhere}
+.h-meta{margin:0;color:var(--hero-muted);font-size:15px}
+.h-aud{margin:4px 0 0;color:var(--hero-muted);font-size:14px}
+.headcount{display:flex;align-items:baseline;gap:10px;margin:16px 0 8px}
+.headcount b{font:900 44px/1 "Frank Ruhl Libre",Georgia,serif;color:var(--gold)}
+.headcount span{color:var(--hero-ink);font-size:15px;line-height:1.3}
+.tally{display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--t-todo);gap:2px}
+.tally i{display:block;height:100%}
+.tally .yes{background:var(--t-yes)} .tally .maybe{background:var(--t-maybe)} .tally .sent{background:var(--t-sent)} .tally .no{background:var(--t-no)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:10px 0 0;font-size:13.5px;color:var(--hero-ink)}
+.legend .dot::before{width:9px;height:9px}
+.legend .l-yes::before{background:var(--t-yes)} .legend .l-maybe::before{background:var(--t-maybe)} .legend .l-sent::before{background:var(--t-sent)} .legend .l-no::before{background:var(--t-no)} .legend .l-todo::before{background:var(--hero-muted)}
+.h-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.h-actions .btn{flex:1 1 auto}
+.hero .btn.quiet{color:var(--hero-ink);border-color:var(--hero-line)}
+.camebox{margin-top:14px;padding-top:14px;border-top:1px solid var(--hero-line);font-size:14.5px;color:var(--hero-ink);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+
+.msgcard{margin:14px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.msgcard .txt{flex:1;min-width:0}
+.msgcard .lbl{font-size:13px;color:var(--muted);margin:0 0 3px}
+.msgcard .body{margin:0;font-size:14.5px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}
+
+/* filters */
+.filters{display:flex;gap:8px;overflow-x:auto;margin:18px -16px 10px;padding:2px 16px 4px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fchip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 13px;border-radius:99px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.fchip b{font-weight:600}
+.fchip[aria-pressed="true"]{background:var(--primary);color:var(--primary-ink);border-color:transparent}
+.fchip .gdot{width:9px;height:9px;border-radius:50%;background:var(--gc)}
+.searchbar{margin:0 0 10px}
+.searchbar input{width:100%;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 14px;font-size:16px}
+
+/* rows */
+.rows{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{padding:11px 12px 11px 14px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .line1{display:flex;align-items:center;gap:8px}
+.who{flex:1;min-width:0;text-align:left;border:0;background:none;padding:2px 0;color:inherit}
+.nm{display:block;font-weight:500;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sub{display:block;font-size:13.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acts{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.grow{flex:1}
+.pill{position:relative;display:inline-flex;align-items:center;border-radius:99px;font-size:14px;font-weight:500}
+.pill select{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:7px 30px 7px 12px;border-radius:99px;color:inherit;font-weight:500;min-height:36px}
+.pill .i{position:absolute;right:9px;width:15px;height:15px;pointer-events:none}
+.st-todo{background:var(--b-todo);color:var(--c-todo)} .st-sent{background:var(--b-sent);color:var(--c-sent)} .st-yes{background:var(--b-yes);color:var(--c-yes)} .st-maybe{background:var(--b-maybe);color:var(--c-maybe)} .st-no{background:var(--b-no);color:var(--c-no)}
+.party{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;font-size:14px}
+.party button{border:0;background:none;width:34px;height:34px;font-size:18px;line-height:1;color:var(--ink)}
+.party span{min-width:58px;text-align:center}
+.came{display:inline-flex;align-items:center;gap:5px;min-height:36px;padding:0 12px;border-radius:99px;border:1px solid var(--line);background:transparent;font-size:14px;font-weight:500;color:var(--muted)}
+.came .i{width:16px;height:16px}
+.came[aria-pressed="true"]{background:var(--gold);color:var(--on-gold);border-color:transparent}
+.tbtn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:99px;background:var(--primary);color:var(--primary-ink);text-decoration:none}
+.tbtn .i{width:19px;height:19px}
+.ibtn{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:99px;border:1px solid var(--line);color:var(--ink);background:transparent;text-decoration:none}
+.ibtn .i{width:18px;height:18px}
+.nophone{font-size:13.5px;color:var(--c-no)}
+.showmore{display:block;margin:12px auto 0}
+.none{color:var(--muted);text-align:center;padding:18px 0}
+.gchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.gtag{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted);background:var(--surface-2);border-radius:99px;padding:1px 8px 1px 7px}
+.gtag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gc)}
+.prow{display:flex;align-items:center;gap:10px}
+.prow .who{display:block}
+.check{width:22px;height:22px;accent-color:var(--primary);flex:none}
+.selbar{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;justify-content:center;padding:0 12px 10px;pointer-events:none}
+.selbar div{pointer-events:auto;background:var(--hero);color:var(--hero-ink);border-radius:16px;box-shadow:var(--shadow);padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:656px;width:100%}
+.selbar b{flex:1 1 100%;font-weight:500;font-size:14.5px;padding:0 4px}
+.selbar .btn{min-height:38px;font-size:14px;padding:0 12px;background:transparent;color:var(--hero-ink);border-color:var(--hero-line)}
+.selbar .btn.gold{background:var(--gold);color:var(--on-gold)}
+
+/* history */
+.rank{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.rank li{display:flex;align-items:center;gap:12px;padding:11px 14px;border-top:1px solid var(--line)}
+.rank li:first-child{border-top:0}
+.rank .n{font:700 22px/1 "Frank Ruhl Libre",Georgia,serif;color:var(--gold-ink);min-width:28px;text-align:center}
+.rank .who{padding:0}
+.hint{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+
+/* bottom tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:center;padding:0 0 env(safe-area-inset-bottom,0px)}
+.tabs button{flex:1;max-width:200px;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 10px;color:var(--muted);font-size:12.5px;font-weight:500}
+.tabs button[aria-current="page"]{color:var(--ink)}
+.tabs button[aria-current="page"] .i{color:var(--gold-ink)}
+.tabs .i{width:23px;height:23px}
+
+/* sheets */
+.sheet-root{position:fixed;inset:0;z-index:50;display:none}
+.sheet-root.open{display:block}
+.scrim{position:absolute;inset:0;background:var(--scrim)}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:calc(100% - env(safe-area-inset-top,0px) - 24px);overflow-y:auto;overscroll-behavior:contain;background:var(--bg);border-radius:22px 22px 0 0;padding:8px 18px calc(22px + env(safe-area-inset-bottom,0px));max-width:680px;margin:0 auto;animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+.grab{width:42px;height:5px;border-radius:99px;background:var(--line);margin:4px auto 10px}
+.sheet h2{font:700 24px/1.15 "Frank Ruhl Libre",Georgia,serif;margin:0 0 4px}
+.sheet .lead{color:var(--muted);margin:0 0 14px;font-size:15px}
+.shead{display:flex;align-items:flex-start;gap:8px}
+.shead h2{flex:1}
+.sheet h2.sec{margin:26px 0 10px}
+.field{display:block;margin:0 0 14px}
+.field > span{display:block;font-size:14px;font-weight:500;margin:0 0 6px}
+.field input,.field textarea,.field select{width:100%;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:10px 13px;font-size:16px}
+.field textarea{min-height:130px;resize:vertical;line-height:1.45}
+.field small{display:block;color:var(--muted);font-size:13px;margin-top:5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.toggles{display:flex;flex-wrap:wrap;gap:8px}
+.tog{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 13px;border-radius:99px;border:1px solid var(--line);background:var(--surface);font-size:14.5px;color:var(--ink)}
+.tog .gdot{width:9px;height:9px;border-radius:50%;background:var(--gc)}
+.tog[aria-pressed="true"]{background:var(--primary);color:var(--primary-ink);border-color:transparent}
+.tog[aria-pressed="true"] .gdot{box-shadow:0 0 0 2px var(--primary-ink)}
+.sbtns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.sbtns .btn{flex:1}
+.opts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.opt{display:flex;gap:13px;align-items:center;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:inherit;font-size:15px}
+.opt .i{width:24px;height:24px;color:var(--gold-ink)}
+.opt b{display:block;font-weight:500;font-size:16px}
+.filepick{position:relative;cursor:pointer;overflow:hidden}
+.filepick input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:0;z-index:2}
+.opt span{color:var(--muted);font-size:13.5px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px;margin:0 0 14px}
+.note ol{margin:6px 0 0;padding-left:20px}
+.note li{margin:3px 0}
+.preview{background:var(--surface-2);border-radius:16px 16px 16px 4px;padding:11px 14px;font-size:15px;white-space:pre-wrap;margin:6px 0 0;overflow-wrap:anywhere}
+.ins{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 14px}
+.ins button{border:1px dashed var(--line);background:var(--surface);border-radius:99px;padding:5px 11px;font-size:13.5px;color:var(--ink)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:8px 14px;font-size:14px;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--primary);color:var(--primary-ink)}
+.mini{list-style:none;margin:0;padding:0;font-size:14.5px}
+.mini li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.mini li:first-child{border-top:0}
+.mini .r{color:var(--muted);text-align:right}
+.maprow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.glist{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.glist li{display:flex;gap:8px;align-items:center}
+.glist input{flex:1;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px}
+.swatch{width:36px;height:36px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line);background:var(--gc);flex:none}
+.results{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-height:46vh;overflow-y:auto}
+.results li{border-top:1px solid var(--line)}
+.results li:first-child{border-top:0}
+.results button{width:100%;text-align:left;border:0;background:none;padding:11px 14px;display:flex;justify-content:space-between;gap:10px;color:inherit}
+
+/* send flow */
+.sendhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;flex-wrap:wrap}
+.left{font-size:14.5px;color:var(--muted)}
+.left b{color:var(--ink);font-weight:600}
+.scard{background:var(--hero);color:var(--hero-ink);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.scard .who2{font:900 28px/1.1 "Frank Ruhl Libre",Georgia,serif;margin:0;overflow-wrap:anywhere}
+.scard .ph{color:var(--hero-muted);margin:4px 0 12px;font-size:15px}
+.scard .preview{background:rgba(246,239,220,.1);color:var(--hero-ink);max-height:34vh;overflow:auto}
+.scard .btn.gold{width:100%;min-height:54px;font-size:17px;margin-top:16px}
+.scard .warn{margin:10px 0 0;color:var(--t-maybe);font-size:14px}
+.scard .btn.ghost{color:var(--hero-ink);border-color:var(--hero-line);background:transparent}
+.scard .pair{display:flex;gap:8px;margin-top:10px}
+.scard .pair .btn{flex:1;min-width:0}
+.scard .failnote{margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--hero-line);font-size:14.5px;color:var(--hero-ink)}
+.tip{margin:12px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px}
+.tip ol{margin:6px 0 10px;padding-left:20px}
+.tip li{margin:3px 0}
+.sdone{text-align:center;padding:10px 0}
+.sdone b{display:block;font:900 52px/1 "Frank Ruhl Libre",Georgia,serif;color:var(--gold-ink)}
+.who-pick{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 14px}
+.who-pick .btn{flex:1}
+
+.gate{max-width:440px;margin:28px auto 0;background:var(--hero);color:var(--hero-ink);border-radius:22px;padding:30px 24px 26px;box-shadow:var(--shadow);text-align:center}
+.gate h1{font:900 32px/1.08 "Frank Ruhl Libre",Georgia,serif;margin:0 0 10px;color:var(--hero-ink)}
+.gate p{margin:0 auto 18px;color:var(--hero-muted);max-width:34ch}
+.gate .btn{width:100%;min-height:52px;font-size:16px}
+.gate .btn + .btn{margin-top:10px}
+.gate .btn.quiet{color:var(--hero-ink);border-color:var(--hero-line)}
+.gate .who{display:block;color:var(--gold);font-weight:500;margin:0 0 6px;word-break:break-all}
+.gate .g{width:20px;height:20px;flex:none}
+.members{list-style:none;margin:0 0 12px;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.members li{display:flex;align-items:center;gap:10px;padding:9px 10px 9px 14px;border-top:1px solid var(--line);font-size:15px;min-height:52px}
+.members li:first-child{border-top:0}
+.members .em{flex:1;min-width:0;overflow-wrap:anywhere}
+.members .em small{display:block;color:var(--muted);font-size:13px}
+.addrow{display:flex;gap:8px}
+.addrow input{flex:1;min-width:0;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px}
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 68px);transform:translateX(-50%) translateY(-8px);z-index:60;background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:12px;font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media (min-width:560px){ .h-title{font-size:36px} }
+@media (prefers-reduced-motion: reduce){ .sheet{animation:none} .toast{transition:none} }
+</style>
+</head>
+<body>
+<header class="top">
+  <p class="brand">Chabad Invites<small id="subtitle">Events, invites and who’s coming</small></p>
+  <span class="sync" id="sync" hidden>Synced</span>
+  <button class="iconbtn" id="setbtn" type="button" data-act="settings" aria-label="Settings" hidden><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+</header>
+<div id="banner" class="banner" hidden></div>
+<main id="app"><p class="loading">Opening your list…</p></main>
+<div id="selbar" class="selbar" hidden></div>
+<nav class="tabs" id="tabs" aria-label="Sections">
+  <button type="button" data-act="tab" data-tab="events"><svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Events</span></button>
+  <button type="button" data-act="tab" data-tab="people"><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.3"/><path d="M3 19.5c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><path d="M15.5 5.6a3 3 0 0 1 0 5.8M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></svg><span>People</span></button>
+  <button type="button" data-act="tab" data-tab="history"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>History</span></button>
+</nav>
+<div id="sheet" class="sheet-root"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ---------------- Firebase connection ----------------
+   These settings identify this app's Firebase project. They are meant to be public;
+   what protects the data is the project's security rules (only approved Google
+   accounts can read or write). */
+const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {};   /* set in config.js */
+const FB_SDK = 'https://www.gstatic.com/firebasejs/12.19.0/';
+
+/* ---------------- icons ---------------- */
+const sv = p => '<svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + p + '</svg>';
+const I = {
+  plus: sv('<path d="M12 5v14M5 12h14"/>'),
+  back: sv('<path d="M15 5l-7 7 7 7"/>'),
+  caret: sv('<path d="M7 10l5 5 5-5"/>'),
+  msg: sv('<path d="M20 12c0 3.9-3.6 7-8 7-1.1 0-2.2-.2-3.1-.6L4 19.5l1.3-3.4C4.5 14.9 4 13.5 4 12c0-3.9 3.6-7 8-7s8 3.1 8 7z"/>'),
+  phone: sv('<path d="M5 4h3.5l1.5 4-2 1.3a11 11 0 0 0 6.7 6.7L16 14l4 1.5V19a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 5.6A1.5 1.5 0 0 1 5 4z"/>'),
+  check: sv('<path d="M5 12.5l4.2 4.2L19 7"/>'),
+  more: sv('<circle cx="5.5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18.5" cy="12" r="1.4"/>'),
+  pencil: sv('<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/>'),
+  user: sv('<circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.7-3.6 3.5-5.5 7-5.5s6.3 1.9 7 5.5"/>'),
+  list: sv('<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>'),
+  sheet: sv('<rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M4 9h16M4 14.5h16M10 9v11.5"/>'),
+  card: sv('<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.3"/><path d="M5.5 16.5c.6-1.7 1.9-2.6 3.5-2.6s2.9.9 3.5 2.6M14.5 10h4M14.5 13.5h3"/>'),
+  book: sv('<path d="M5 4.5h11a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2V4.5z"/><path d="M5 18a2 2 0 0 1 2-2h11"/><circle cx="11.5" cy="9.5" r="2"/>'),
+  tag: sv('<path d="M3.5 12.2V4.5h7.7l9 9-7.7 7.7-9-9z"/><circle cx="8" cy="9" r="1.3"/>'),
+  copy: sv('<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>'),
+  trash: sv('<path d="M4.5 7h15M9.5 7V4.5h5V7M6.5 7l1 13h9l1-13"/>'),
+  download: sv('<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19.5h14"/>'),
+  share: sv('<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.8l7.6-4.1M8.2 13.2l7.6 4.1"/>')
+};
+
+/* ---------------- small utils ---------------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const isObj = v => v !== null && typeof v === 'object' && !Array.isArray(v);
+const uid = () => Date.now().toString(36).slice(-5) + Math.random().toString(36).slice(2, 8);
+const plural = (n, one, many) => n + ' ' + (n === 1 ? one : (many || one + 's'));
+const uniq = a => Array.from(new Set(a));
+const LS = {
+  get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+  set(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+};
+function deepMerge(a, b){
+  const out = Object.assign({}, isObj(a) ? a : {});
+  for (const k in b) {
+    if (!Object.prototype.hasOwnProperty.call(b, k)) continue;
+    out[k] = (isObj(b[k]) && isObj(out[k])) ? deepMerge(out[k], b[k]) : b[k];
+  }
+  return out;
+}
+function hash(s){ let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
+const SHARDS = 8;
+const shardPath = id => 'book/c' + (hash(id) % SHARDS);
+const byName = (a, b) => (a.n || '').localeCompare(b.n || '', undefined, {sensitivity:'base'});
+
+/* phones */
+function normPhone(raw){
+  const s = String(raw || '').trim();
+  if (!s) return '';
+  const plus = s.charAt(0) === '+';
+  const d = s.replace(/\D/g, '');
+  if (!d) return '';
+  if (plus) return '+' + d;
+  if (d.length === 10) return '+1' + d;
+  if (d.length === 11 && d.charAt(0) === '1') return '+' + d;
+  return d;
+}
+const phoneKey = p => { const d = String(p || '').replace(/\D/g, ''); return d.length >= 10 ? d.slice(-10) : d; };
+const validPhone = p => phoneKey(p).length >= 7;
+function fmtPhone(p){
+  const s = String(p || '');
+  if (/^\+1\d{10}$/.test(s)) { const x = s.slice(2); return '(' + x.slice(0,3) + ') ' + x.slice(3,6) + '-' + x.slice(6); }
+  return s;
+}
+const TITLES = /^(mr|mrs|ms|miss|dr|rabbi|rebbetzin|reb|cantor|prof)\.?$/i;
+function greetName(c){
+  if (c.fn && c.fn.trim()) return c.fn.trim();
+  const t = String(c.n || '').trim().split(/\s+/).filter(Boolean);
+  while (t.length > 1 && TITLES.test(t[0])) t.shift();
+  if (t.length >= 3 && (t[1] === '&' || /^and$/i.test(t[1]))) return t[0] + ' & ' + t[2];
+  return t[0] || 'there';
+}
+
+/* dates */
+function todayStr(){ const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+function parseD(s){ const p = String(s || '').split('-').map(Number); return new Date(p[0], (p[1]||1) - 1, p[2] || 1); }
+function dayDiff(s){ const a = parseD(todayStr()), b = parseD(s); return Math.round((b - a) / 86400000); }
+function fmtLong(s){ return parseD(s).toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric'}); }
+function fmtShort(s){ const d = parseD(s); const o = {month:'short', day:'numeric'}; if (d.getFullYear() !== new Date().getFullYear()) o.year = 'numeric'; return d.toLocaleDateString('en-US', o); }
+function fmtMonth(s){ return parseD(s).toLocaleDateString('en-US', {month:'short'}); }
+function fmtWeekday(s){ return parseD(s).toLocaleDateString('en-US', {weekday:'short'}); }
+function relLabel(s){
+  const n = dayDiff(s);
+  if (n === 0) return 'Today';
+  if (n === 1) return 'Tomorrow';
+  if (n === -1) return 'Yesterday';
+  if (n > 13) return 'In ' + Math.round(n / 7) + ' weeks';
+  if (n > 1) return 'In ' + n + ' days';
+  return (-n) + ' days ago';
+}
+function whenText(s){
+  const n = dayDiff(s);
+  if (n === 0) return 'today';
+  if (n === 1) return 'tomorrow';
+  if (n > 1 && n < 7) return 'this ' + parseD(s).toLocaleDateString('en-US', {weekday:'long'});
+  return 'on ' + fmtLong(s);
+}
+function relTime(ts){
+  if (!ts) return '';
+  const d = new Date(ts), now = new Date();
+  const t = d.toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'});
+  if (d.toDateString() === now.toDateString()) return 'today at ' + t;
+  const y = new Date(now); y.setDate(now.getDate() - 1);
+  if (d.toDateString() === y.toDateString()) return 'yesterday at ' + t;
+  const o = {month:'short', day:'numeric'}; if (d.getFullYear() !== now.getFullYear()) o.year = 'numeric';
+  return d.toLocaleDateString('en-US', o);
+}
+
+/* ---------------- messages ---------------- */
+const DEF_MSG = 'Hi {first}! You’re invited to {event} on {date} at {time}, {place}. We’d love to see you there. Can we count you in?';
+const DEF_RMSG = 'Hi {first}! Just a reminder that {event} is {when} at {time}, {place}. Looking forward to seeing you!';
+const FIELDS = [['first','First name'],['event','Event name'],['date','Date'],['when','“today” / “tomorrow”'],['time','Time'],['place','Place']];
+function compose(tpl, c, ev){
+  const vals = {
+    first: greetName(c), event: (ev && ev.name) || 'our event',
+    date: ev && ev.date ? fmtLong(ev.date) : '', when: ev && ev.date ? whenText(ev.date) : '',
+    time: (ev && ev.time) || '', place: (ev && ev.place) || ''
+  };
+  return String(tpl || '')
+    .replace(/\{(\w+)\}/g, (m, k) => Object.prototype.hasOwnProperty.call(vals, k) ? vals[k] : m)
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/\b(at|on)\s*,/gi, ',')
+    .replace(/,\s*([.!?,])/g, '$1')
+    .replace(/ +([,.!?])/g, '$1')
+    .replace(/\b(at|on)([.!?])/gi, '$2')
+    .trim();
+}
+const smsHref = (c, text) => 'sms:' + encodeURIComponent(c.p).replace(/%2B/g, '+') + '?body=' + encodeURIComponent(text);
+const APP_URL = location.origin + location.pathname;
+
+/* Opening Messages or the phone app: try, then watch whether the phone actually left
+   this screen. Only a real switch (or the person saying they sent it) counts as texted. */
+let WATCH = null;
+function stopWatch(){ if (WATCH) { WATCH.off(); WATCH = null; } }
+function openApp(href, cb){
+  stopWatch();
+  let framed = true;
+  try { framed = window.top !== window; } catch(e) { framed = true; }
+  if (framed) {
+    let w = null;
+    try { w = window.open(href, '_blank'); } catch(e) { w = null; }
+    if (!w) { cb('failed'); return; }
+  } else {
+    try { window.location.href = href; } catch(e) { cb('failed'); return; }
+  }
+  const me = {done:false};
+  const left = () => { if (me.done) return; me.done = true; me.off(); if (WATCH === me) WATCH = null; cb('opened'); };
+  const vis = () => { if (document.visibilityState === 'hidden') left(); };
+  me.off = () => { document.removeEventListener('visibilitychange', vis); window.removeEventListener('blur', left); clearTimeout(me.t1); clearTimeout(me.t2); };
+  document.addEventListener('visibilitychange', vis);
+  window.addEventListener('blur', left);
+  me.t1 = setTimeout(() => { if (!me.done) cb('failed'); }, 2500);
+  me.t2 = setTimeout(() => { if (!me.done) { me.done = true; me.off(); if (WATCH === me) WATCH = null; } }, 30000);
+  WATCH = me;
+}
+function copyText(text){
+  let ok = false;
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+    document.body.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+    ok = document.execCommand('copy'); ta.remove();
+  } catch(e) { ok = false; }
+  if (ok) return Promise.resolve(true);
+  try { if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text).then(() => true, () => false); } catch(e) {}
+  return Promise.resolve(false);
+}
+
+/* ---------------- state ---------------- */
+const S = {
+  raw: {}, ver: 0, ready: false,
+  loaded: {book:false, meta:false, events:false}, firm: {book:false, meta:false, events:false},
+  tab: ['events','people','history'].indexOf(LS.get('ci-tab')) > -1 ? LS.get('ci-tab') : 'events',
+  eventId: null, evFilter: 'all', evSearch: '', evShow: 120,
+  pGroup: 'all', pSearch: '', pShow: 150, selecting: false, sel: new Set(),
+  hGroup: 'all',
+  sheet: null, readOnly: false, offline: false, saving: 0, noDb: false,
+  me: LS.get('ci-me') || '',
+  auth: 'loading', user: null, members: null, isOwner: false, err: '',
+  order: LS.get('ci-order') === 'za' ? 'za' : 'az'
+};
+const EXISTS = {};
+const DELETED = new Set();
+let DB = null, USER = null, DOWNLOADS = null;
+let C = {ver: -1};
+
+function D(){
+  if (C.ver === S.ver) return C;
+  const contacts = {};
+  for (let i = 0; i < SHARDS; i++) {
+    const d = S.raw['book/c' + i];
+    if (d && isObj(d.c)) for (const id in d.c) { const c = d.c[id]; if (isObj(c) && c.n != null) contacts[id] = c; }
+  }
+  const list = Object.keys(contacts).map(id => Object.assign({id}, contacts[id])).sort(byName);
+  const gRaw = (S.raw['meta/groups'] || {}).g || {};
+  const groups = Object.keys(gRaw).filter(k => isObj(gRaw[k]) && gRaw[k].name).map(k => Object.assign({id:k}, gRaw[k]))
+    .sort((a, b) => (a.o || 0) - (b.o || 0) || a.name.localeCompare(b.name));
+  const gmap = {}; groups.forEach(g => { gmap[g.id] = g; });
+  const events = Object.keys(S.raw).filter(p => p.indexOf('events/') === 0 && isObj(S.raw[p]) && S.raw[p].name)
+    .map(p => Object.assign({id: p.slice(7)}, S.raw[p]))
+    .sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.created || 0) - (b.created || 0));
+  const byPhone = {}; list.forEach(c => { const k = phoneKey(c.p); if (k) byPhone[k] = c.id; });
+  C = {ver: S.ver, contacts, list, groups, gmap, events, byPhone, settings: S.raw['meta/settings'] || {}};
+  return C;
+}
+const contactGroups = c => (c.g || []).filter(g => D().gmap[g]);
+const getEvent = id => { const r = S.raw['events/' + id]; return isObj(r) && r.name ? Object.assign({id}, r) : null; };
+const gColor = g => 'var(--g' + ((g && g.color) || 0) % 8 + ')';
+
+function audience(ev){
+  const st = ev.st || {}, d = D(), gs = ev.groups || [];
+  return d.list.filter(c => {
+    const e = st[c.id];
+    if (e && e.x) return false;
+    if (ev.everyone) return true;
+    if ((c.g || []).some(g => gs.indexOf(g) > -1 && d.gmap[g])) return true;
+    return !!(e && (e.a || e.tx || e.r || e.came));
+  });
+}
+function pstate(e){
+  if (!e) return 'todo';
+  if (e.r === 'yes' || e.r === 'maybe' || e.r === 'no') return e.r;
+  return e.tx ? 'sent' : 'todo';
+}
+function counts(ev, aud){
+  const st = ev.st || {};
+  const k = {todo:0, sent:0, yes:0, maybe:0, no:0, head:0, came:0, total:0, rem:0};
+  (aud || audience(ev)).forEach(c => {
+    const e = st[c.id]; const s = pstate(e); k[s]++; k.total++;
+    if (s === 'yes') k.head += Math.max(1, (e && e.n) || 1);
+    if ((s === 'yes' || s === 'maybe') && !(e && e.rx) && validPhone(c.p)) k.rem++;
+    if (e && e.came) k.came++;
+  });
+  return k;
+}
+const audLabel = ev => {
+  if (ev.everyone) return 'Everyone on your list';
+  const names = (ev.groups || []).map(g => D().gmap[g]).filter(Boolean).map(g => g.name);
+  return names.length ? names.join(', ') : 'People you add by hand';
+};
+
+/* ---------------- saving ---------------- */
+const Q = {};
+function setSaving(n){ S.saving = Math.max(0, S.saving + n); paintSync(); }
+function write(path, patch){
+  if (S.readOnly) { toast('This list is view only for you.'); return false; }
+  if (!DB) { toast('Not connected yet. Try again in a moment.'); return false; }
+  DELETED.delete(path);
+  S.raw[path] = deepMerge(S.raw[path], patch); S.ver++;
+  const q = Q[path] || (Q[path] = {pending:null, inflight:null, busy:false});
+  q.pending = q.pending ? deepMerge(q.pending, patch) : patch;
+  if (!q.busy) flush(path);
+  schedule();
+  return true;
+}
+async function flush(path){
+  const q = Q[path]; q.busy = true; setSaving(1);
+  while (q.pending) {
+    const p = q.pending; q.pending = null; q.inflight = p;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try { await sendPatch(path, p); break; }
+      catch(e) {
+        const code = e && e.code;
+        if ((code === 'unavailable' || code === 'deadline_exceeded' || code === 'aborted') && attempt === 0) { await sleep(500 + Math.random() * 900); continue; }
+        writeError(code); break;
+      }
+    }
+    q.inflight = null;
+  }
+  q.busy = false; setSaving(-1);
+}
+async function sendPatch(path, p){
+  const ref = DB.doc(path);
+  try { await ref.update(p); EXISTS[path] = true; }
+  catch(e) {
+    if (e && e.code === 'invalid_argument' && !EXISTS[path]) { await ref.set(p); EXISTS[path] = true; return; }
+    throw e;
+  }
+}
+function writeError(code){
+  if (code === 'resource_exhausted') toast('The app hit today’s free limit. Changes will work again tomorrow.');
+  else if (code === 'permission_denied') { toast('That change didn’t save. This account no longer has access.'); S.auth = 'denied'; render(); }
+  else if (code === 'invalid_argument') toast('That change didn’t save. It may be too large.');
+  else toast('That change didn’t save. Check your connection and try again.');
+}
+async function removeDoc(path){
+  if (!DB || S.readOnly) return;
+  DELETED.add(path);
+  delete S.raw[path]; S.ver++; schedule();
+  const q = Q[path]; if (q) q.pending = null;
+  while (q && q.busy) await sleep(120);
+  try { await DB.doc(path).delete(); EXISTS[path] = false; }
+  catch(e) { writeError(e && e.code); }
+}
+function applySnap(prefix, snap){
+  const present = new Set();
+  snap.docs.forEach(doc => {
+    const path = prefix + '/' + doc.id;
+    if (DELETED.has(path)) return;
+    present.add(path); EXISTS[path] = true;
+    let data = doc.data() || {};
+    const q = Q[path];
+    if (q && q.inflight) data = deepMerge(data, q.inflight);
+    if (q && q.pending) data = deepMerge(data, q.pending);
+    S.raw[path] = data;
+  });
+  Object.keys(S.raw).forEach(p => {
+    if (p.indexOf(prefix + '/') === 0 && !present.has(p)) {
+      const q = Q[p];
+      if (q && (q.busy || q.pending)) return;
+      delete S.raw[p];
+      if (!snap.metadata.fromCache) EXISTS[p] = false;
+    }
+  });
+  if (!snap.metadata.fromCache) S.firm[prefix] = true;
+  S.loaded[prefix] = true;
+  S.ver++;
+  if (!S.ready && S.loaded.book && S.loaded.meta && S.loaded.events) S.ready = true;
+  if (S.firm.book && S.firm.meta && S.firm.events) { clearTimeout(loadTimer); if (S.offline) { S.offline = false; paintBanner(); } }
+  schedule();
+}
+let loadTimer = null;
+function subscribe(prefix){
+  DB.collection(prefix).onSnapshot(snap => applySnap(prefix, snap), err => {
+    const code = err && err.code;
+    if (code === 'permission_denied') { S.auth = 'denied'; render(); return; }
+    if (code === 'unavailable') { S.offline = true; paintBanner(); setTimeout(() => subscribe(prefix), 4000); return; }
+    S.loaded[prefix] = true; if (!S.ready && S.loaded.book && S.loaded.meta && S.loaded.events) S.ready = true;
+    S.offline = true; paintBanner(); schedule();
+  });
+}
+
+/* ---------------- render plumbing ---------------- */
+let rq = false;
+function schedule(){ if (rq) return; rq = true; requestAnimationFrame(() => { rq = false; render(); if (S.sheet && S.sheet.live) renderSheet(); }); }
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 3200);
+}
+function paintSync(){
+  const el = $('#sync');
+  if (!DB) { el.hidden = true; return; }
+  el.hidden = false;
+  el.className = 'sync' + (S.offline ? ' off' : S.saving ? ' saving' : '');
+  el.textContent = S.offline ? 'Offline' : S.saving ? 'Saving' : 'Synced';
+}
+function paintBanner(){
+  const b = $('#banner'); let msg = '';
+  if (S.noDb) msg = 'Can’t connect to your saved list. Check your internet connection and reload.';
+  else if (S.offline) msg = 'Can’t reach your saved list right now. Changes will sync once the connection is back.';
+  else if (S.readOnly) msg = 'You can view this list but not change it.';
+  b.hidden = !msg; b.innerHTML = msg ? '<p>' + esc(msg) + '</p>' : '';
+  paintSync();
+}
+
+function render(){
+  const app = $('#app');
+  const ae = document.activeElement;
+  const fkey = ae && ae.dataset ? ae.dataset.focus : null;
+  let s0 = null, s1 = null;
+  if (fkey) { try { s0 = ae.selectionStart; s1 = ae.selectionEnd; } catch(e){} }
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === S.tab ? 'page' : 'false'));
+  const inApp = S.auth === 'in';
+  $('#tabs').hidden = !inApp; $('#setbtn').hidden = !inApp;
+  if (!inApp) { app.innerHTML = gateHtml(); $('#selbar').hidden = true; return; }
+  if (!S.ready) { app.innerHTML = '<p class="loading">Opening your list…</p>'; $('#selbar').hidden = true; return; }
+  if (S.tab === 'events') app.innerHTML = S.eventId && getEvent(S.eventId) ? renderEvent(getEvent(S.eventId)) : renderEvents();
+  else if (S.tab === 'people') app.innerHTML = renderPeople();
+  else app.innerHTML = renderHistory();
+  renderSelbar();
+  if (fkey) {
+    const el = app.querySelector('[data-focus="' + fkey + '"]');
+    if (el) { el.focus({preventScroll:true}); try { if (s0 != null) el.setSelectionRange(s0, s1); } catch(e){} }
+  }
+}
+
+/* ---------------- sign-in screens ---------------- */
+const GLOGO = '<svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+function gateHtml(){
+  if (S.auth === 'out') return '<section class="gate"><h1>Chabad Invites</h1><p>Sign in with your Google account to see your invite list.</p>'
+    + '<button class="btn gold" type="button" data-act="sign-in">' + GLOGO + 'Sign in with Google</button></section>';
+  if (S.auth === 'denied') return '<section class="gate"><h1>Not on the list yet</h1><span class="who">' + esc(S.user ? S.user.email : '') + '</span>'
+    + '<p>This Google account doesn’t have access. Ask whoever manages the app to add this address in Settings, then tap Try again.</p>'
+    + '<button class="btn gold" type="button" data-act="retry-access">Try again</button>'
+    + '<button class="btn quiet" type="button" data-act="sign-out">Use a different account</button></section>';
+  if (S.auth === 'config') return '<section class="gate"><h1>Almost ready</h1><p>This app isn’t connected to its database yet.</p></section>';
+  if (S.auth === 'error') return '<section class="gate"><h1>Can’t open the app</h1><p>' + esc(S.err || 'Something went wrong.') + '</p>'
+    + '<button class="btn gold" type="button" data-act="reload">Reload</button></section>';
+  return '<p class="loading">Opening your list…</p>';
+}
+
+/* ---------------- events list ---------------- */
+function tallyLine(k){
+  const parts = [];
+  if (k.yes) parts.push('<span class="dot k-yes">' + k.yes + ' coming' + (k.head > k.yes ? ' (' + k.head + ' people)' : '') + '</span>');
+  if (k.maybe) parts.push('<span class="dot k-maybe">' + k.maybe + ' maybe</span>');
+  if (k.sent) parts.push('<span class="dot k-sent">' + k.sent + ' texted, no answer</span>');
+  if (k.todo) parts.push('<span class="dot k-todo">' + k.todo + ' not texted</span>');
+  if (!parts.length) parts.push('<span class="dot k-todo">No one invited yet</span>');
+  return parts.join('');
+}
+function eventCard(ev){
+  const k = counts(ev);
+  const meta = [ev.time, ev.place].filter(Boolean).join(', ');
+  return '<li><button type="button" class="evcard" data-act="open-event" data-id="' + esc(ev.id) + '">'
+    + '<span class="stub"><span>' + esc(fmtMonth(ev.date)) + '</span><b>' + parseD(ev.date).getDate() + '</b><span>' + esc(fmtWeekday(ev.date)) + '</span></span>'
+    + '<span class="evbody"><span class="ttl">' + esc(ev.name) + '</span>'
+    + '<span class="meta">' + esc(relLabel(ev.date)) + (meta ? ', ' + esc(meta) : '') + '</span>'
+    + '<span class="tl">' + tallyLine(k) + '</span></span></button></li>';
+}
+function renderEvents(){
+  const d = D(), t = todayStr();
+  const up = d.events.filter(e => e.date >= t);
+  const past = d.events.filter(e => e.date < t);
+  let h = '<div class="pagehead"><h1>Events</h1><button class="btn primary sm" type="button" data-act="new-event">' + I.plus + 'New event</button></div>';
+  if (!up.length) {
+    h += '<section class="empty"><h2>' + (past.length ? 'Nothing coming up' : 'Plan your first event') + '</h2>'
+      + '<p>Create an event, choose who to invite, and text everyone a personal invite in a few taps.</p>'
+      + '<button class="btn gold" type="button" data-act="new-event">' + I.plus + 'New event</button>'
+      + (d.list.length ? '' : '<p style="margin:16px auto 0">You don’t have anyone on your list yet. <button class="linkbtn" type="button" data-act="add-people">Add people first</button></p>')
+      + '</section>';
+  } else {
+    h += '<ul class="evlist">' + up.map(eventCard).join('') + '</ul>';
+  }
+  if (past.length) h += '<p class="morelink"><button class="linkbtn" type="button" data-act="tab" data-tab="history">See ' + plural(past.length, 'past event') + ' in History</button></p>';
+  return h;
+}
+
+/* ---------------- one event ---------------- */
+const STATES = ['todo','sent','yes','maybe','no'];
+const SLABEL = {todo:'Not texted', sent:'Texted', yes:'Coming', maybe:'Maybe', no:'Not coming'};
+function renderEvent(ev){
+  const aud = audience(ev), k = counts(ev, aud), st = ev.st || {};
+  const arrived = ev.date <= todayStr();
+  const meta = [ev.time, ev.place].filter(Boolean).join(', ');
+  let h = '<div class="evtop"><button class="back" type="button" data-act="back">' + I.back + (ev.date < todayStr() ? 'History' : 'Events') + '</button>'
+    + '<button class="iconbtn" type="button" data-act="event-menu" aria-label="Event options">' + I.more + '</button></div>';
+  h += '<section class="hero">'
+    + '<div class="h-date"><span>' + esc(fmtLong(ev.date)) + '</span><span class="chip">' + esc(relLabel(ev.date)) + '</span></div>'
+    + '<h1 class="h-title">' + esc(ev.name) + '</h1>'
+    + (meta ? '<p class="h-meta">' + esc(meta) + '</p>' : '')
+    + '<p class="h-aud">Inviting ' + esc(audLabel(ev)) + ' (' + plural(k.total, 'person', 'people') + ')</p>';
+  const tot = Math.max(1, k.total);
+  h += '<div class="headcount"><b>' + k.head + '</b><span>' + (k.head === 1 ? 'person' : 'people') + ' coming' + (k.maybe ? '<br>' + k.maybe + ' maybe' : '') + '</span></div>'
+    + '<div class="tally" role="img" aria-label="' + esc(k.yes + ' coming, ' + k.maybe + ' maybe, ' + k.sent + ' texted with no answer, ' + k.no + ' not coming, ' + k.todo + ' not texted') + '">'
+    + ['yes','maybe','sent','no'].map(s => k[s] ? '<i class="' + s + '" style="width:' + (k[s] / tot * 100).toFixed(2) + '%"></i>' : '').join('') + '</div>'
+    + '<div class="legend">' + ['yes','maybe','sent','no','todo'].filter(s => k[s]).map(s => '<span class="dot l-' + s + '">' + k[s] + ' ' + (s === 'sent' ? 'no answer' : SLABEL[s].toLowerCase()) + '</span>').join('') + '</div>';
+  const isPast = ev.date < todayStr();
+  const textable = isPast ? 0 : aud.filter(c => validPhone(c.p) && pstate(st[c.id]) === 'todo').length;
+  h += '<div class="h-actions">'
+    + (textable ? '<button class="btn gold" type="button" data-act="send" data-mode="invite">' + I.msg + 'Text invites to ' + textable + '</button>'
+      : '')
+    + (k.rem && !isPast ? '<button class="btn quiet" type="button" data-act="send" data-mode="reminder">Send reminder to ' + k.rem + '</button>' : '')
+    + '</div>';
+  if (arrived && k.total) {
+    h += '<div class="camebox"><span>' + (k.came ? k.came + ' came. ' : '') + 'Tap Came for each person who showed up.</span>'
+      + (k.yes && k.came < k.yes ? '<button class="btn quiet sm" type="button" data-act="all-came">Mark all ' + k.yes + ' coming as came</button>' : '') + '</div>';
+  }
+  h += '</section>';
+  const sample = aud[0] || D().list[0] || {n:'Sarah Levine'};
+  if (!isPast) h += '<div class="msgcard"><div class="txt"><p class="lbl">Invite message, as ' + esc(greetName(sample)) + ' will see it</p><p class="body">' + esc(compose(ev.msg || DEF_MSG, sample, ev)) + '</p></div>'
+    + '<button class="btn sm" type="button" data-act="edit-msg">' + I.pencil + 'Edit</button></div>';
+
+  if (!aud.length) {
+    h += '<section class="empty" style="margin-top:16px"><h2>No one on this invite yet</h2><p>Pick groups to invite, or add people one by one.</p>'
+      + '<div class="sbtns" style="justify-content:center"><button class="btn primary" type="button" data-act="edit-event">Choose groups</button><button class="btn" type="button" data-act="add-to-event">Add someone</button></div></section>';
+    return h;
+  }
+  const F = [['all','All',k.total],['todo','Not texted',k.todo],['sent','No answer',k.sent],['yes','Coming',k.yes],['maybe','Maybe',k.maybe],['no','Not coming',k.no]];
+  if (arrived) F.push(['came','Came',k.came]);
+  if (!F.some(f => f[0] === S.evFilter)) S.evFilter = 'all';
+  h += '<div class="filters" role="group" aria-label="Show">' + F.filter(f => f[0] === 'all' || f[2] || f[0] === S.evFilter)
+    .map(f => '<button type="button" class="fchip" data-act="evfilter" data-f="' + f[0] + '" aria-pressed="' + (S.evFilter === f[0]) + '">' + f[1] + ' <b>' + f[2] + '</b></button>').join('') + '</div>';
+  if (aud.length > 12) h += '<div class="searchbar"><input type="search" data-focus="evsearch" id="evsearch" placeholder="Find a person" autocomplete="off" value="' + esc(S.evSearch) + '"></div>';
+  let shown = aud.filter(c => {
+    const e = st[c.id];
+    if (S.evFilter === 'came') return !!(e && e.came);
+    return S.evFilter === 'all' || pstate(e) === S.evFilter;
+  });
+  shown = filterBySearch(shown, S.evSearch);
+  if (!shown.length) h += '<p class="none">No one here.</p>';
+  else {
+    h += '<ul class="rows">' + shown.slice(0, S.evShow).map(c => eventRow(c, ev, arrived)).join('') + '</ul>';
+    if (shown.length > S.evShow) h += '<button class="btn showmore" type="button" data-act="evmore">Show ' + Math.min(200, shown.length - S.evShow) + ' more</button>';
+  }
+  h += '<div class="sbtns"><button class="btn" type="button" data-act="add-to-event">' + I.plus + 'Add someone to this event</button></div>';
+  return h;
+}
+function eventRow(c, ev, arrived){
+  const e = (ev.st || {})[c.id] || {};
+  const s = pstate(e), id = esc(c.id);
+  const bits = [];
+  if (e.tx) bits.push('Texted ' + (e.tb ? 'by ' + e.tb + ' ' : '') + relTime(e.tx));
+  else if (s === 'todo') bits.push('Not texted yet');
+  if (e.rx) bits.push('reminder sent');
+  if (c.no) bits.push(c.no);
+  const opts = STATES.map(k => '<option value="' + k + '"' + (k === s ? ' selected' : '') + '>' + SLABEL[k] + '</option>').join('');
+  let acts = '<span class="pill st-' + s + '"><select data-act="status" data-id="' + id + '" aria-label="Status for ' + esc(c.n) + '">' + opts + '</select>' + I.caret + '</span>';
+  if (s === 'yes') {
+    const n = Math.max(1, e.n || 1);
+    acts += '<span class="party" role="group" aria-label="Party size"><button type="button" data-act="party" data-d="-1" data-id="' + id + '" aria-label="Fewer">−</button><span>' + plural(n, 'person', 'people') + '</span><button type="button" data-act="party" data-d="1" data-id="' + id + '" aria-label="More">+</button></span>';
+  }
+  acts += '<span class="grow"></span>';
+  if (arrived) acts += '<button type="button" class="came" data-act="came" data-id="' + id + '" aria-pressed="' + !!e.came + '">' + I.check + 'Came</button>';
+  if (validPhone(c.p) && ev.date < todayStr()) acts += '<button type="button" class="ibtn" data-act="call" data-p="' + esc(c.p) + '" aria-label="Call ' + esc(c.n) + '">' + I.phone + '</button>';
+  else if (validPhone(c.p)) acts += '<button type="button" class="tbtn" data-act="text-one" data-id="' + id + '" aria-label="Text ' + esc(c.n) + '">' + I.msg + '</button>';
+  else acts += '<span class="nophone">No number</span>';
+  return '<li class="row"><div class="line1"><button type="button" class="who" data-act="contact" data-id="' + id + '"><span class="nm">' + esc(c.n) + '</span><span class="sub">' + esc(bits.join(', ')) + '</span></button></div>'
+    + '<div class="acts">' + acts + '</div></li>';
+}
+function filterBySearch(list, q){
+  q = String(q || '').trim().toLowerCase();
+  if (!q) return list;
+  const qd = q.replace(/\D/g, '');
+  return list.filter(c => (c.n || '').toLowerCase().indexOf(q) > -1 || (c.no || '').toLowerCase().indexOf(q) > -1 || (qd.length > 2 && String(c.p || '').replace(/\D/g, '').indexOf(qd) > -1));
+}
+
+/* ---------------- people ---------------- */
+function renderPeople(){
+  const d = D();
+  let h = '<div class="pagehead"><h1>People<span>' + plural(d.list.length, 'person', 'people') + ' on your list</span></h1>'
+    + (d.list.length ? '<button class="btn sm" type="button" data-act="select-mode">' + (S.selecting ? 'Done' : 'Select') + '</button>' : '')
+    + '<button class="btn primary sm" type="button" data-act="add-people">' + I.plus + 'Add</button></div>';
+  if (!d.list.length) {
+    return h + '<section class="empty"><h2>Who would you like to invite?</h2><p>Bring in people from your phone’s contacts, an Excel sheet, or type them in.</p>'
+      + '<button class="btn gold" type="button" data-act="add-people">' + I.plus + 'Add people</button></section>';
+  }
+  const noGroup = d.list.filter(c => !contactGroups(c).length).length;
+  if (S.pGroup !== 'all' && S.pGroup !== 'none' && !d.gmap[S.pGroup]) S.pGroup = 'all';
+  h += '<div class="filters" role="group" aria-label="Groups"><button type="button" class="fchip" data-act="pgroup" data-g="all" aria-pressed="' + (S.pGroup === 'all') + '">Everyone <b>' + d.list.length + '</b></button>'
+    + d.groups.map(g => '<button type="button" class="fchip" data-act="pgroup" data-g="' + esc(g.id) + '" aria-pressed="' + (S.pGroup === g.id) + '" style="--gc:' + gColor(g) + '"><span class="gdot"></span>' + esc(g.name) + ' <b>' + d.list.filter(c => (c.g || []).indexOf(g.id) > -1).length + '</b></button>').join('')
+    + (d.groups.length && noGroup ? '<button type="button" class="fchip" data-act="pgroup" data-g="none" aria-pressed="' + (S.pGroup === 'none') + '">No group <b>' + noGroup + '</b></button>' : '')
+    + '<button type="button" class="fchip" data-act="groups">' + I.tag + (d.groups.length ? 'Edit groups' : 'Make groups') + '</button></div>';
+  h += '<div class="searchbar"><input type="search" id="psearch" data-focus="psearch" placeholder="Find by name or number" autocomplete="off" value="' + esc(S.pSearch) + '"></div>';
+  let shown = d.list.filter(c => S.pGroup === 'all' ? true : S.pGroup === 'none' ? !contactGroups(c).length : (c.g || []).indexOf(S.pGroup) > -1);
+  shown = filterBySearch(shown, S.pSearch);
+  if (!shown.length) return h + '<p class="none">No one matches.</p>';
+  h += '<ul class="rows">' + shown.slice(0, S.pShow).map(personRow).join('') + '</ul>';
+  if (shown.length > S.pShow) h += '<button class="btn showmore" type="button" data-act="pmore">Show ' + Math.min(300, shown.length - S.pShow) + ' more</button>';
+  if (S.selecting) h += '<div style="height:120px"></div>';
+  return h;
+}
+function personRow(c){
+  const gs = contactGroups(c).map(g => D().gmap[g]);
+  const inner = '<span class="nm">' + esc(c.n) + '</span><span class="sub">' + esc(validPhone(c.p) ? fmtPhone(c.p) : 'No phone number') + (c.no ? ', ' + esc(c.no) : '') + '</span>'
+    + (gs.length ? '<span class="gchips">' + gs.map(g => '<span class="gtag" style="--gc:' + gColor(g) + '">' + esc(g.name) + '</span>').join('') + '</span>' : '');
+  if (S.selecting) {
+    return '<li class="row"><label class="prow"><input type="checkbox" class="check" data-act="sel" data-id="' + esc(c.id) + '"' + (S.sel.has(c.id) ? ' checked' : '') + '><span class="who">' + inner + '</span></label></li>';
+  }
+  return '<li class="row prow"><button type="button" class="who" data-act="contact" data-id="' + esc(c.id) + '">' + inner + '</button>'
+    + (validPhone(c.p) ? '<button type="button" class="ibtn" data-act="call" data-p="' + esc(c.p) + '" aria-label="Call ' + esc(c.n) + '">' + I.phone + '</button>' : '') + '</li>';
+}
+function renderSelbar(){
+  const bar = $('#selbar');
+  if (!(S.ready && S.tab === 'people' && S.selecting)) { bar.hidden = true; bar.innerHTML = ''; return; }
+  const n = S.sel.size;
+  bar.hidden = false;
+  bar.innerHTML = '<div><b>' + (n ? plural(n, 'person', 'people') + ' selected' : 'Tap people to select them') + '</b>'
+    + '<button class="btn" type="button" data-act="sel-all">Select all shown</button>'
+    + '<button class="btn gold" type="button" data-act="sel-group"' + (n ? '' : ' disabled') + '>Add to group</button>'
+    + '<button class="btn" type="button" data-act="sel-ungroup"' + (n ? '' : ' disabled') + '>Remove from group</button>'
+    + '<button class="btn" type="button" data-act="sel-delete"' + (n ? '' : ' disabled') + '>Delete</button></div>';
+}
+
+/* ---------------- history ---------------- */
+function renderHistory(){
+  const d = D(), t = todayStr();
+  const past = d.events.filter(e => e.date <= t).slice().reverse();
+  let h = '<div class="pagehead"><h1>History</h1></div>';
+  if (!past.length) return h + '<section class="empty"><h2>No past events yet</h2><p>After an event, mark who came. You’ll see your regulars here.</p></section>';
+  h += '<ul class="evlist">' + past.slice(0, 40).map(ev => {
+    const k = counts(ev);
+    const bits = [];
+    bits.push(k.came ? '<span class="dot k-yes">' + k.came + ' came</span>' : '<span class="dot k-todo">Attendance not marked</span>');
+    if (k.yes) bits.push('<span class="dot k-maybe">' + k.yes + ' said they’d come</span>');
+    const texted = Object.keys(ev.st || {}).filter(id => (ev.st[id] || {}).tx && d.contacts[id]).length;
+    if (texted) bits.push('<span class="dot k-sent">' + texted + ' texted</span>');
+    return '<li><button type="button" class="evcard" data-act="open-event" data-id="' + esc(ev.id) + '">'
+      + '<span class="stub"><span>' + esc(fmtMonth(ev.date)) + '</span><b>' + parseD(ev.date).getDate() + '</b><span>' + parseD(ev.date).getFullYear() + '</span></span>'
+      + '<span class="evbody"><span class="ttl">' + esc(ev.name) + '</span><span class="meta">' + esc(relLabel(ev.date)) + '</span><span class="tl">' + bits.join('') + '</span></span></button></li>';
+  }).join('') + '</ul>';
+
+  // attendance per person
+  const stats = {};
+  past.forEach(ev => {
+    const st = ev.st || {};
+    audience(ev).forEach(c => {
+      const e = st[c.id];
+      if (!e || !(e.tx || e.r || e.came)) return;
+      const s = stats[c.id] || (stats[c.id] = {inv:0, came:0, last:''});
+      s.inv++;
+      if (e.came) { s.came++; if (!s.last) s.last = ev.name; }
+    });
+  });
+  if (S.hGroup !== 'all' && !d.gmap[S.hGroup]) S.hGroup = 'all';
+  const inG = c => S.hGroup === 'all' || (c.g || []).indexOf(S.hGroup) > -1;
+  const people = d.list.filter(c => stats[c.id] && inG(c));
+  const regulars = people.filter(c => stats[c.id].came).sort((a, b) => stats[b.id].came - stats[a.id].came || stats[a.id].inv - stats[b.id].inv || byName(a, b));
+  const quiet = people.filter(c => !stats[c.id].came && stats[c.id].inv >= 3).sort((a, b) => stats[b.id].inv - stats[a.id].inv || byName(a, b));
+  h += '<h2 class="sec">Who comes most</h2>';
+  if (d.groups.length) h += '<div class="filters" role="group" aria-label="Group"><button type="button" class="fchip" data-act="hgroup" data-g="all" aria-pressed="' + (S.hGroup === 'all') + '">Everyone</button>'
+    + d.groups.map(g => '<button type="button" class="fchip" data-act="hgroup" data-g="' + esc(g.id) + '" aria-pressed="' + (S.hGroup === g.id) + '" style="--gc:' + gColor(g) + '"><span class="gdot"></span>' + esc(g.name) + '</button>').join('') + '</div>';
+  if (!regulars.length) h += '<p class="hint">Once you mark who came to an event, your regulars show up here.</p>';
+  else h += '<ol class="rank">' + regulars.slice(0, 30).map(c => {
+    const s = stats[c.id];
+    return '<li><span class="n">' + s.came + '</span><button type="button" class="who" data-act="contact" data-id="' + esc(c.id) + '"><span class="nm">' + esc(c.n) + '</span><span class="sub">Came ' + plural(s.came, 'time') + ' out of ' + plural(s.inv, 'invite') + (s.last ? ', last to ' + esc(s.last) : '') + '</span></button></li>';
+  }).join('') + '</ol>';
+  if (quiet.length) {
+    h += '<h2 class="sec">Invited often, hasn’t come yet</h2><p class="hint">A personal call might help with these.</p>'
+      + '<ol class="rank">' + quiet.slice(0, 30).map(c => '<li><span class="n">' + stats[c.id].inv + '</span><button type="button" class="who" data-act="contact" data-id="' + esc(c.id) + '"><span class="nm">' + esc(c.n) + '</span><span class="sub">Invited ' + plural(stats[c.id].inv, 'time') + '</span></button>'
+        + (validPhone(c.p) ? '<button type="button" class="ibtn" data-act="call" data-p="' + esc(c.p) + '" aria-label="Call ' + esc(c.n) + '">' + I.phone + '</button>' : '') + '</li>').join('') + '</ol>';
+  }
+  return h;
+}
+
+/* ---------------- sheets ---------------- */
+function openSheet(sheet){ S.sheet = sheet; renderSheet(true); }
+function closeSheet(){ S.sheet = null; const r = $('#sheet'); r.classList.remove('open'); r.innerHTML = ''; }
+function renderSheet(first){
+  const r = $('#sheet');
+  if (!S.sheet) { closeSheet(); return; }
+  const fn = SHEETS[S.sheet.type];
+  const body = fn ? fn(S.sheet) : '';
+  if (body == null) { closeSheet(); return; }
+  const old = r.querySelector('.sheet');
+  const st = old && !first ? old.scrollTop : 0;
+  r.innerHTML = '<div class="scrim" data-act="close"></div><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>' + body + '</div>';
+  r.classList.add('open');
+  const sh = r.querySelector('.sheet');
+  if (!first) sh.style.animation = 'none';
+  sh.scrollTop = st;
+  if (first) { const f = sh.querySelector('[data-autofocus]'); if (f && window.matchMedia('(min-width:700px)').matches) f.focus(); }
+}
+const xbtn = '<button class="iconbtn" type="button" data-act="close" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+function groupToggles(selected, act){
+  const d = D();
+  if (!d.groups.length) return '<p class="hint" style="margin:0">No groups yet.</p>';
+  return '<div class="toggles">' + d.groups.map(g => '<button type="button" class="tog" data-act="' + act + '" data-g="' + esc(g.id) + '" aria-pressed="' + (selected.indexOf(g.id) > -1) + '" style="--gc:' + gColor(g) + '"><span class="gdot"></span>' + esc(g.name) + '</button>').join('') + '</div>';
+}
+function readForm(){
+  const v = {};
+  document.querySelectorAll('#sheet [name]').forEach(el => { v[el.name] = el.type === 'checkbox' ? el.checked : el.value; });
+  return v;
+}
+function newGroup(name){
+  name = String(name || '').trim(); if (!name) return null;
+  const d = D();
+  const found = d.groups.find(g => g.name.toLowerCase() === name.toLowerCase());
+  if (found) return found.id;
+  const id = 'g' + uid();
+  write('meta/groups', {g: {[id]: {name, color: d.groups.length % 8, o: Date.now()}}});
+  return id;
+}
+
+const SHEETS = {
+  /* event form */
+  event(sh){
+    const ev = sh.id ? getEvent(sh.id) : (sh.copy || {});
+    if (sh.id && !ev) return null;
+    if (!sh.groups) { sh.groups = (ev.groups || []).slice(); sh.everyone = ev.everyone != null ? !!ev.everyone : !D().groups.length; }
+    return '<div class="shead"><h2>' + (sh.id ? 'Edit event' : sh.copy ? 'Copy event' : 'New event') + '</h2>' + xbtn + '</div>'
+      + '<label class="field"><span>Event name</span><input name="name" data-autofocus value="' + esc(ev.name || '') + '" placeholder="Chanukah Party" autocomplete="off"></label>'
+      + '<div class="two"><label class="field"><span>Date</span><input name="date" type="date" value="' + esc(sh.copy ? '' : (ev.date || '')) + '"></label>'
+      + '<label class="field"><span>Time</span><input name="time" value="' + esc(ev.time || '') + '" placeholder="7:30 PM" autocomplete="off"></label></div>'
+      + '<label class="field"><span>Place</span><input name="place" value="' + esc(ev.place || '') + '" placeholder="Wood Ranch Center" autocomplete="off"></label>'
+      + '<div class="field"><span>Who’s invited</span><div class="toggles" style="margin-bottom:10px">'
+      + '<button type="button" class="tog" data-act="ev-everyone" data-v="1" aria-pressed="' + !!sh.everyone + '">Everyone on the list</button>'
+      + '<button type="button" class="tog" data-act="ev-everyone" data-v="0" aria-pressed="' + !sh.everyone + '">Only some groups</button></div>'
+      + (sh.everyone ? '' : groupToggles(sh.groups, 'ev-group')
+        + '<div style="display:flex;gap:8px;margin-top:10px"><input name="newgroup" placeholder="New group name" autocomplete="off" style="flex:1;min-height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button type="button" class="btn sm" data-act="ev-newgroup">Add</button></div>'
+        + '<small>You can also add individual people on the event page.</small>')
+      + '</div>'
+      + '<div class="sbtns"><button class="btn primary" type="button" data-act="save-event">' + (sh.id ? 'Save changes' : 'Create event') + '</button></div>';
+  },
+  eventMenu(sh){
+    const ev = getEvent(sh.id); if (!ev) return null;
+    return '<div class="shead"><h2>' + esc(ev.name) + '</h2>' + xbtn + '</div><ul class="opts">'
+      + '<li><button class="opt" type="button" data-act="edit-event">' + I.pencil + '<span><b>Edit details and who’s invited</b></span></button></li>'
+      + '<li><button class="opt" type="button" data-act="edit-msg">' + I.msg + '<span><b>Edit the messages</b><span>Invite and reminder texts</span></span></button></li>'
+      + '<li><button class="opt" type="button" data-act="copy-event">' + I.copy + '<span><b>Copy to a new date</b><span>Same name, place, groups and messages</span></span></button></li>'
+      + '<li><button class="opt" type="button" data-act="delete-event">' + I.trash + '<span><b>Delete this event</b><span>People stay on your list</span></span></button></li></ul>';
+  },
+  /* messages */
+  msg(sh){
+    const isDefault = !sh.id;
+    const ev = sh.id ? getEvent(sh.id) : null;
+    if (sh.id && !ev) return null;
+    const set = D().settings;
+    if (sh.text == null) {
+      sh.text = sh.which === 'reminder' ? ((ev ? ev.rmsg : set.rmsg) || DEF_RMSG) : ((ev ? ev.msg : set.msg) || DEF_MSG);
+    }
+    const sample = D().list[0] || {n:'Sarah Levine'};
+    const evs = ev || {name:'Chanukah Party', date: todayStr(), time:'7:30 PM', place:'the Chabad House'};
+    return '<div class="shead"><h2>' + (isDefault ? 'Starting messages' : 'Messages') + '</h2>' + xbtn + '</div>'
+      + '<p class="lead">' + (isDefault ? 'New events start with these. You can still change them for each event.' : 'Each person gets their own text with their first name filled in.') + '</p>'
+      + '<div class="seg" role="group" aria-label="Which message" style="margin:0 0 14px"><button type="button" data-act="msg-which" data-w="invite" aria-pressed="' + (sh.which !== 'reminder') + '">Invite</button><button type="button" data-act="msg-which" data-w="reminder" aria-pressed="' + (sh.which === 'reminder') + '">Reminder</button></div>'
+      + '<label class="field"><span>' + (sh.which === 'reminder' ? 'Reminder' : 'Invite') + ' text</span><textarea id="msgtext" name="msgtext">' + esc(sh.text) + '</textarea></label>'
+      + '<p class="hint" style="margin:-6px 0 8px">Tap to insert:</p><div class="ins">' + FIELDS.map(f => '<button type="button" data-act="ins" data-k="' + f[0] + '">' + esc(f[1]) + '</button>').join('') + '</div>'
+      + '<p class="hint" style="margin:0">Preview for ' + esc(greetName(sample)) + ':</p><p class="preview" id="msgprev">' + esc(compose(sh.text, sample, evs)) + '</p>'
+      + (isDefault ? '' : '<label style="display:flex;gap:10px;align-items:center;margin:14px 0 0;font-size:14.5px"><input type="checkbox" class="check" name="asdefault"' + (sh.asdef ? ' checked' : '') + '> Also use these for new events</label>')
+      + '<div class="sbtns"><button class="btn quiet" type="button" data-act="msg-reset">Reset to the original</button><button class="btn primary" type="button" data-act="save-msg">Save</button></div>';
+  },
+  /* contact */
+  contact(sh){
+    const d = D();
+    const c = sh.id ? d.contacts[sh.id] : {};
+    if (sh.id && !c) return null;
+    if (!sh.groups) sh.groups = sh.id ? contactGroups(c).slice() : (sh.preset || []).slice();
+    let h = '<div class="shead"><h2>' + (sh.id ? esc(c.n) : 'Add a person') + '</h2>' + xbtn + '</div>'
+      + '<label class="field"><span>Name</span><input name="n" data-autofocus value="' + esc(c.n || '') + '" placeholder="Sarah Levine" autocomplete="off"></label>'
+      + '<label class="field"><span>Mobile number</span><input name="p" type="tel" inputmode="tel" value="' + esc(c.p ? fmtPhone(c.p) : '') + '" placeholder="(805) 555-0123" autocomplete="off"></label>'
+      + '<label class="field"><span>Name to use in texts (optional)</span><input name="fn" value="' + esc(c.fn || '') + '" placeholder="' + esc(greetName({n: c.n || 'Sarah Levine'})) + '" autocomplete="off"><small>For couples or nicknames, like “David & Leah” or “Mrs. Cohen”.</small></label>'
+      + '<div class="field"><span>Groups</span>' + groupToggles(sh.groups, 'c-group')
+      + '<div style="display:flex;gap:8px;margin-top:10px"><input name="newgroup" placeholder="New group name" autocomplete="off" style="flex:1;min-height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button type="button" class="btn sm" data-act="c-newgroup">Add</button></div></div>'
+      + '<label class="field"><span>Note</span><input name="no" value="' + esc(c.no || '') + '" placeholder="Kohen, needs a ride, etc." autocomplete="off"></label>'
+      + '<div class="sbtns">' + (sh.id ? '<button class="btn danger" type="button" data-act="delete-contact">' + I.trash + 'Delete</button>' : '')
+      + (sh.id && sh.fromEvent && getEvent(sh.fromEvent) ? '<button class="btn" type="button" data-act="remove-from-event">Take off this event</button>' : '')
+      + '<button class="btn primary" type="button" data-act="save-contact">' + (sh.id ? 'Save' : 'Add person') + '</button></div>';
+    if (sh.id) {
+      const rows = d.events.slice().reverse().filter(ev => audience(ev).some(x => x.id === sh.id)).slice(0, 25).map(ev => {
+        const e = (ev.st || {})[sh.id] || {};
+        const s = e.came ? 'Came' : SLABEL[pstate(e)];
+        return '<li><span>' + esc(ev.name) + '<br><span class="r" style="font-size:13px">' + esc(fmtShort(ev.date)) + '</span></span><span class="r">' + esc(s) + (e.tx ? '<br><span style="font-size:13px">texted ' + esc(relTime(e.tx)) + (e.tb ? ' by ' + esc(e.tb) : '') + '</span>' : '') + '</span></li>';
+      });
+      h += '<h2 class="sec" style="font-size:18px">Invites</h2>' + (rows.length ? '<ul class="mini">' + rows.join('') + '</ul>' : '<p class="hint">Not invited to anything yet.</p>');
+    }
+    return h;
+  },
+  /* add people menu */
+  add(){
+    const picker = ('contacts' in navigator) && navigator.contacts && typeof navigator.contacts.select === 'function' && LS.get('ci-picker') !== 'no';
+    return '<div class="shead"><h2>Add people</h2>' + xbtn + '</div><ul class="opts">'
+      + (picker ? '<li><button class="opt" type="button" data-act="pick-contacts">' + I.book + '<span><b>Pick from phone contacts</b><span>Choose people right from your contact list</span></span></button></li>' : '')
+      + '<li><button class="opt" type="button" data-act="vcf-help">' + I.card + '<span><b>From your phone’s contacts</b><span>Export them from the Contacts app as a file, then pick it here</span></span></button></li>'
+      + '<li><label class="opt filepick">' + I.sheet + '<span><b>From an Excel or CSV file</b><span>.xlsx, .xls or .csv with names and numbers</span></span><input type="file" id="f-table" aria-label="Choose an Excel or CSV file"></label></li>'
+      + '<li><button class="opt" type="button" data-act="paste">' + I.list + '<span><b>Paste a list</b><span>One person per line: name, then number</span></span></button></li>'
+      + '<li><button class="opt" type="button" data-act="new-contact">' + I.user + '<span><b>Type in one person</b></span></button></li></ul>';
+  },
+  vcf(){
+    return '<div class="shead"><h2>From your phone’s contacts</h2>' + xbtn + '</div>'
+      + '<div class="note"><b>On Android</b><ol><li>Open the <b>Contacts</b> app.</li><li>Find <b>Export</b>. In Google Contacts it’s under <b>Fix & manage</b>. On a Samsung it’s under <b>Manage contacts</b>, then <b>Import or export</b>.</li><li>Save the .vcf file to your phone.</li><li>Come back here and choose that file.</li></ol></div>'
+      + '<p class="hint">Only want a few people? In Contacts, select them, tap <b>Share</b>, and save the file. You’ll pick who to add on the next screen either way.</p>'
+      + '<div class="sbtns"><label class="btn gold filepick">Choose the contacts file<input type="file" id="f-vcf" aria-label="Choose the contacts file"></label></div>';
+  },
+  paste(sh){
+    return '<div class="shead"><h2>Paste a list</h2>' + xbtn + '</div>'
+      + '<p class="lead">One person per line, with the name and then the number. Or open your spreadsheet in Google Sheets or Excel, select the columns including the header row, copy, and paste them here.</p>'
+      + '<label class="field"><span>People</span><textarea name="bulk" data-autofocus placeholder="Sarah Levine, 805-555-0123&#10;David Cohen 818 555 0199">' + esc(sh.text || '') + '</textarea></label>'
+      + '<div class="sbtns"><button class="btn primary" type="button" data-act="paste-go">Next</button></div>';
+  },
+  /* import review */
+  review(sh){
+    const d = D();
+    let recs = sh.recs;
+    let mapHtml = '';
+    if (sh.table) {
+      const T = sh.table;
+      recs = tableRecords(T);
+      const opts = sel => '<option value="-1">None</option>' + T.cols.map((n, i) => '<option value="' + i + '"' + (sel === i ? ' selected' : '') + '>' + esc(n) + '</option>').join('');
+      mapHtml = '<div class="note"><b>Match the columns</b><div class="maprow" style="margin-top:10px">'
+        + '<label class="field" style="margin:0"><span>Full name</span><select data-act="map" data-k="name">' + opts(T.map.name) + '</select></label>'
+        + '<label class="field" style="margin:0"><span>Mobile number</span><select data-act="map" data-k="phone">' + opts(T.map.phone) + '</select></label>'
+        + '<label class="field" style="margin:0"><span>First name</span><select data-act="map" data-k="first">' + opts(T.map.first) + '</select></label>'
+        + '<label class="field" style="margin:0"><span>Last name</span><select data-act="map" data-k="last">' + opts(T.map.last) + '</select></label></div>'
+        + (T.sheets && T.sheets.length > 1 ? '<label class="field" style="margin:10px 0 0"><span>Sheet</span><select data-act="map-sheet">' + T.sheets.map((n, i) => '<option value="' + i + '"' + (i === T.sheetIdx ? ' selected' : '') + '>' + esc(n) + '</option>').join('') + '</select></label>' : '')
+        + '<small>If there’s no full name column, first and last name are put together.</small></div>';
+    }
+    if (!sh.pick) sh.pick = {};
+    const seen = {}, fresh = [], dupes = [];
+    let noPhone = 0;
+    recs.forEach((r, i) => {
+      const k = phoneKey(r.p);
+      if (!r.n && !k) return;
+      if (!validPhone(r.p)) { noPhone++; return; }
+      if (seen[k]) return; seen[k] = 1;
+      if (d.byPhone[k]) dupes.push(r); else fresh.push(Object.assign({i}, r));
+    });
+    const bigFile = sh.from === 'vcf' && fresh.length > 60;
+    fresh.forEach(r => { if (sh.pick[r.i] == null) sh.pick[r.i] = !bigFile; });
+    sh._fresh = fresh; sh._dupes = dupes;
+    const chosenN = fresh.filter(r => sh.pick[r.i]).length;
+    const summary = ['Found ' + plural(fresh.length + dupes.length + noPhone, 'person', 'people') + '.'];
+    if (dupes.length) summary.push(dupes.length + (dupes.length === 1 ? ' is' : ' are') + ' already on your list.');
+    if (noPhone) summary.push(noPhone + (noPhone === 1 ? ' has' : ' have') + ' no phone number and will be skipped.');
+    let h = '<div class="shead"><h2 id="rtitle">Add ' + plural(chosenN, 'person', 'people') + '</h2>' + xbtn + '</div>'
+      + '<p class="lead">' + esc(summary.join(' ')) + '</p>' + mapHtml
+      + '<div class="field"><span>Put them in a group (optional)</span>' + groupToggles(sh.groups, 'r-group')
+      + '<div style="display:flex;gap:8px;margin-top:10px"><input name="newgroup" placeholder="New group name, like JLI students" autocomplete="off" style="flex:1;min-height:42px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button type="button" class="btn sm" data-act="r-newgroup">Add</button></div></div>';
+    if (dupes.length) h += '<label style="display:flex;gap:10px;align-items:center;margin:0 0 14px;font-size:14.5px"><input type="checkbox" class="check" data-act="r-dupes"' + (sh.dupesToGroup !== false ? ' checked' : '') + '> Also add the ' + dupes.length + ' already on your list to these groups</label>';
+    if (fresh.length) {
+      if (bigFile && !chosenN) h += '<p class="hint">This file has everyone from your phone, so no one is ticked yet. Search and tick the people you want, or tap All.</p>';
+      h += '<div style="display:flex;align-items:center;gap:10px;margin:0 0 8px"><b id="rcount" style="flex:1;font-weight:500">' + chosenN + ' of ' + fresh.length + ' new people ticked</b>'
+        + '<button class="btn sm" type="button" data-act="r-all" data-v="1">All</button><button class="btn sm" type="button" data-act="r-all" data-v="0">None</button></div>';
+      if (fresh.length > 15) h += '<div class="searchbar"><input type="search" id="rsearch" placeholder="Search these people" autocomplete="off" value="' + esc(sh.rq || '') + '"></div>';
+      h += '<div id="rlist">' + reviewList(sh) + '</div>';
+    } else if (!dupes.length) {
+      h += '<p class="none">No names with phone numbers were found' + (sh.table ? '. Try matching the columns above.' : '.') + '</p>';
+    }
+    h += '<div class="sbtns"><button id="rgo" class="btn gold" type="button" data-act="r-go"' + (chosenN || (dupes.length && sh.groups.length) ? '' : ' disabled') + '>'
+      + (chosenN ? 'Add ' + plural(chosenN, 'person', 'people') : 'Update groups') + '</button></div>';
+    return h;
+  },
+  /* groups */
+  groups(sh){
+    const d = D();
+    return '<div class="shead"><h2>Groups</h2>' + xbtn + '</div>'
+      + '<p class="lead">Use groups like Women’s Circle, JLI or Wood Ranch to invite just the right people. Tap a color to change it.</p>'
+      + (d.groups.length ? '<ul class="glist">' + d.groups.map(g => '<li><button type="button" class="swatch" data-act="g-color" data-g="' + esc(g.id) + '" style="--gc:' + gColor(g) + '" aria-label="Change color"></button>'
+        + '<input data-act="g-name" data-g="' + esc(g.id) + '" value="' + esc(g.name) + '" aria-label="Group name">'
+        + '<button class="ibtn" type="button" data-act="g-delete" data-g="' + esc(g.id) + '" aria-label="Delete ' + esc(g.name) + '">' + I.trash + '</button></li>').join('') + '</ul>' : '')
+      + '<div style="display:flex;gap:8px"><input name="newgroup" data-autofocus placeholder="New group name" autocomplete="off" style="flex:1;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button type="button" class="btn primary" data-act="g-add">Add group</button></div>';
+  },
+  pickGroup(sh){
+    const d = D();
+    const ids = Array.from(S.sel).filter(id => d.contacts[id]);
+    const gs = sh.remove ? d.groups.filter(g => ids.some(id => (d.contacts[id].g || []).indexOf(g.id) > -1)) : d.groups;
+    return '<div class="shead"><h2>' + (sh.remove ? 'Remove ' : 'Add ') + plural(ids.length, 'person', 'people') + (sh.remove ? ' from' : ' to') + '</h2>' + xbtn + '</div>'
+      + (gs.length ? '<ul class="opts">' + gs.map(g => '<li><button class="opt" type="button" data-act="' + (sh.remove ? 'sel-ungroup-go' : 'sel-group-go') + '" data-g="' + esc(g.id) + '" style="--gc:' + gColor(g) + '"><span class="swatch" style="width:22px;height:22px;border-width:2px"></span><span><b>' + esc(g.name) + '</b></span></button></li>').join('') + '</ul>' : '<p class="hint">' + (sh.remove ? 'They aren’t in any groups.' : 'No groups yet.') + '</p>')
+      + (sh.remove ? '' : '<div style="display:flex;gap:8px;margin-top:14px"><input name="newgroup" placeholder="New group name" autocomplete="off" style="flex:1;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button type="button" class="btn primary" data-act="sel-group-new">Add to new group</button></div>');
+  },
+  /* add to event */
+  addTo(sh){
+    const ev = getEvent(sh.id); if (!ev) return null;
+    return '<div class="shead"><h2>Add to ' + esc(ev.name) + '</h2>' + xbtn + '</div>'
+      + '<div class="searchbar"><input type="search" id="addsearch" data-autofocus placeholder="Search your list" autocomplete="off" value="' + esc(sh.q || '') + '"></div>'
+      + '<div id="addresults">' + addResults(sh, ev) + '</div>'
+      + '<p class="hint" style="margin-top:14px">Not on your list yet?</p><button class="btn" type="button" data-act="add-new-to-event">' + I.plus + 'Add a new person</button>';
+  },
+  /* send flow */
+  send(sh){
+    const ev = getEvent(sh.id); if (!ev) return null;
+    sh.live = true;
+    const st = ev.st || {};
+    const onlyC = sh.only ? D().contacts[sh.only] : null;
+    if (sh.only && !onlyC) return null;
+    const title = sh.only ? 'Text ' + esc(greetName(onlyC)) : sh.mode === 'reminder' ? 'Send reminders' : 'Text invites';
+    let h = '<div class="shead"><h2>' + title + '</h2>' + xbtn + '</div>';
+    if (!S.me) {
+      return h + '<p class="lead">Who’s texting from this phone? It shows next to each text, so you both know who reached whom.</p>'
+        + '<div class="who-pick"><button class="btn primary" type="button" data-act="set-me" data-v="Rabbi">Rabbi</button><button class="btn primary" type="button" data-act="set-me" data-v="Rebbetzin">Rebbetzin</button></div>'
+        + '<div style="display:flex;gap:8px"><input name="mename" placeholder="Or type a name" autocomplete="off" style="flex:1;min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--surface);padding:0 12px;font-size:16px"><button class="btn" type="button" data-act="set-me-typed">Use this</button></div>';
+    }
+    const q = sendQueue(sh, ev);
+    if (sh.cur && !sh.opened && q.every(c => c.id !== sh.cur)) {
+      const e = st[sh.cur] || {};
+      const other = sh.mode === 'reminder' ? (e.rx && !sh.mine[sh.cur]) : (e.tx && !sh.mine[sh.cur]);
+      if (!other) sh.cur = null;
+    }
+    if (!sh.cur && q.length) sh.cur = q[0].id;
+    const left = q.length;
+    if (!sh.only) h += '<div class="sendhead"><span class="left"><b>' + left + '</b> left' + (sh.count ? ', ' + sh.count + ' opened so far' : '') + '</span>'
+      + '<span class="seg" role="group" aria-label="Order"><button type="button" data-act="order" data-v="az" aria-pressed="' + (S.order === 'az') + '">A to Z</button><button type="button" data-act="order" data-v="za" aria-pressed="' + (S.order === 'za') + '">Z to A</button></span></div>';
+    const c = sh.cur ? D().contacts[sh.cur] : null;
+    if (!c) {
+      sh.cur = null;
+      return h + '<div class="sdone"><b>' + (sh.count || '✓') + '</b><p>' + (sh.count ? 'Texts opened. ' : '') + (sh.mode === 'reminder' ? 'Everyone coming or maybe has had a reminder.' : 'Everyone on this invite has been texted.') + '</p>'
+        + '<button class="btn primary" type="button" data-act="close">Done</button></div>';
+    }
+    const person = Object.assign({id: sh.cur}, c);
+    const e = st[sh.cur] || {};
+    const text = compose(sh.mode === 'reminder' ? (ev.rmsg || DEF_RMSG) : (ev.msg || DEF_MSG), person, ev);
+    const tookBy = sh.mode === 'reminder' ? e.rx : e.tx;
+    const otherDid = !sh.only && !sh.opened && tookBy && !sh.mine[sh.cur];
+    h += '<div class="scard"><p class="who2">' + esc(person.n) + '</p><p class="ph">' + esc(fmtPhone(person.p)) + '</p>'
+      + '<p class="preview">' + esc(text) + '</p>';
+    if (otherDid) {
+      h += '<p class="warn">' + esc((sh.mode === 'reminder' ? e.rb : e.tb) || 'Someone else') + ' just texted ' + esc(greetName(person)) + '.</p>'
+        + '<button class="btn gold" type="button" data-act="send-next">Next person</button>';
+    } else if (sh.phase === 'opened') {
+      const nxt = q.find(x => x.id !== sh.cur);
+      h += '<p class="warn" style="color:var(--hero-muted)">Messages opened for ' + esc(greetName(person)) + '. Tap send there, then come back here.</p>'
+        + '<button class="btn gold" type="button" data-act="send-next">' + (nxt ? 'Next: ' + esc(nxt.n) : 'Finish') + '</button>'
+        + '<div class="sbtns" style="margin-top:8px"><button class="btn ghost" type="button" data-act="send-open">Open Messages again</button></div>';
+    } else if (sh.phase === 'waiting') {
+      h += '<button class="btn gold" type="button" disabled>Opening Messages…</button>';
+    } else if (sh.phase === 'failed') {
+      h += '<p class="failnote"><b>Messages didn’t open.</b> Copy the message and number, send it from Messages yourself, then come back and tap I sent it.</p>'
+        + '<div class="pair"><button class="btn ghost" type="button" data-act="copy-msg">' + I.copy + 'Copy message</button><button class="btn ghost" type="button" data-act="copy-num">' + I.copy + 'Copy number</button></div>'
+        + '<button class="btn gold" type="button" data-act="sent-manual">' + I.check + 'I sent it' + (sh.only ? '' : ', next person') + '</button>'
+        + '<div class="pair"><button class="btn ghost" type="button" data-act="send-open">Try again</button>' + (sh.only ? '' : '<button class="btn ghost" type="button" data-act="send-skip">Skip for now</button>') + '</div>';
+    } else {
+      h += '<button class="btn gold" type="button" data-act="send-open">' + I.msg + 'Text ' + esc(greetName(person)) + '</button>';
+      if (sh.failedOnce) h += '<div class="pair"><button class="btn ghost" type="button" data-act="copy-msg">' + I.copy + 'Copy message</button><button class="btn ghost" type="button" data-act="copy-num">' + I.copy + 'Copy number</button></div>'
+        + '<div class="pair"><button class="btn ghost" type="button" data-act="sent-manual">' + I.check + 'I sent it</button><button class="btn ghost" type="button" data-act="send-skip">Skip for now</button></div>';
+      else h += '<div class="sbtns" style="margin-top:8px"><button class="btn ghost" type="button" data-act="send-skip">Skip for now</button></div>';
+    }
+    h += '</div>';
+    if (!sh.only) h += '<p class="hint" style="margin-top:12px">Texting together? Have one of you go A to Z and the other Z to A. Anyone already texted drops off both lists.</p>';
+    return h;
+  },
+  settings(sh){
+    sh.live = true;
+    const set = D().settings;
+    const m = S.members || {emails: []};
+    const emails = (m.emails || []).slice().sort((a, b) => (a === m.owner ? -1 : b === m.owner ? 1 : a.localeCompare(b)));
+    let h = '<div class="shead"><h2>Settings</h2>' + xbtn + '</div>'
+      + '<label class="field"><span>Who’s texting from this phone</span><input name="me" value="' + esc(S.me) + '" placeholder="Rabbi, Rebbetzin…" autocomplete="off"><small>Shown next to texts you send, so you both know who reached whom. Each phone remembers its own.</small></label>'
+      + '<div class="sbtns" style="margin-top:0"><button class="btn primary" type="button" data-act="save-me">Save name</button></div>'
+      + '<h2 class="sec" style="font-size:18px">Starting messages</h2><p class="preview" style="margin-bottom:10px">' + esc(set.msg || DEF_MSG) + '</p>'
+      + '<button class="btn" type="button" data-act="edit-default-msg">' + I.pencil + 'Edit starting messages</button>'
+      + '<h2 class="sec" style="font-size:18px">People who can use this app</h2>'
+      + '<ul class="members">' + emails.map(e => '<li><span class="em">' + esc(e)
+          + (e === m.owner || (S.user && e === S.user.email) ? '<small>' + [e === m.owner ? 'Manages access' : '', S.user && e === S.user.email ? 'You' : ''].filter(Boolean).join(', ') + '</small>' : '') + '</span>'
+          + (S.isOwner && e !== m.owner ? '<button class="ibtn" type="button" data-act="member-remove" data-e="' + esc(e) + '" aria-label="Remove ' + esc(e) + '">' + I.trash + '</button>' : '') + '</li>').join('') + '</ul>';
+    if (S.isOwner) h += '<div class="addrow"><input name="newmember" type="email" inputmode="email" autocomplete="off" placeholder="Their Gmail address"><button class="btn primary" type="button" data-act="member-add">Add</button></div>'
+      + '<p class="hint" style="margin-top:8px">They open this same link and sign in with that Google account.</p>';
+    else h += '<p class="hint">' + esc(m.owner || 'The person who set this up') + ' can add or remove people.</p>';
+    h += '<h2 class="sec" style="font-size:18px">Backup</h2>'
+      + '<div class="sbtns" style="margin-top:0;flex-direction:column"><button class="btn" type="button" data-act="export">' + I.download + 'Download the list as a spreadsheet</button>'
+      + '<button class="btn" type="button" data-act="backup">' + I.download + 'Download a full backup</button>'
+      + (S.isOwner ? '<label class="btn filepick">Restore from a backup<input type="file" id="f-backup" aria-label="Choose a backup file"></label>' : '') + '</div>'
+      + '<p class="hint" style="margin-top:8px">A full backup keeps everything: people, groups, events and who came.</p>'
+      + '<h2 class="sec" style="font-size:18px">Account</h2><p class="hint">Signed in as ' + esc(S.user ? S.user.email : '') + '</p>'
+      + '<button class="btn" type="button" data-act="sign-out">Sign out</button>';
+    return h;
+  },
+  confirm(sh){
+    return '<h2>' + esc(sh.title) + '</h2><p class="lead">' + esc(sh.text) + '</p>'
+      + '<div class="sbtns"><button class="btn" type="button" data-act="close">Cancel</button><button class="btn primary" type="button" data-act="confirm-yes" style="background:var(--c-no);color:#fff">' + esc(sh.yes) + '</button></div>';
+  }
+};
+
+function sendQueue(sh, ev){
+  if (sh.only) { const c = D().contacts[sh.only]; return c ? [Object.assign({id: sh.only}, c)] : []; }
+  const st = ev.st || {};
+  let q = audience(ev).filter(c => {
+    if (!validPhone(c.p) || sh.skipped[c.id]) return false;
+    const e = st[c.id] || {};
+    if (sh.mode === 'reminder') return (e.r === 'yes' || e.r === 'maybe') && !e.rx;
+    return !e.tx && !e.r;
+  });
+  if (S.order === 'za') q.reverse();
+  return q;
+}
+function addResults(sh, ev){
+  const inAud = new Set(audience(ev).map(c => c.id));
+  const list = filterBySearch(D().list.filter(c => !inAud.has(c.id)), sh.q || '');
+  if (!list.length) return '<p class="none">' + (sh.q ? 'No one matches.' : 'Everyone on your list is already invited.') + '</p>';
+  return '<ul class="results">' + list.slice(0, 60).map(c => '<li><button type="button" data-act="add-to-event-go" data-id="' + esc(c.id) + '"><span>' + esc(c.n) + '</span><span class="sub">' + esc(fmtPhone(c.p)) + '</span></button></li>').join('') + '</ul>';
+}
+
+function reviewShown(sh){
+  const q = String(sh.rq || '').trim().toLowerCase();
+  if (!q) return sh._fresh || [];
+  const qd = q.replace(/\D/g, '');
+  return (sh._fresh || []).filter(r => (r.n || '').toLowerCase().indexOf(q) > -1 || (qd.length > 2 && String(r.p).replace(/\D/g, '').indexOf(qd) > -1));
+}
+function reviewList(sh){
+  const list = reviewShown(sh), lim = sh.show || 300;
+  if (!list.length) return '<p class="none">No one matches.</p>';
+  return '<ul class="rows">' + list.slice(0, lim).map(r => '<li class="row"><label class="prow"><input type="checkbox" class="check" data-act="r-pick" data-i="' + r.i + '"' + (sh.pick[r.i] ? ' checked' : '') + '><span class="who"><span class="nm">' + esc(r.n || '(no name)') + '</span><span class="sub">' + esc(fmtPhone(r.p)) + '</span></span></label></li>').join('')
+    + (list.length > lim ? '<li class="row"><button class="btn sm" type="button" data-act="r-more">Show more</button></li>' : '') + '</ul>';
+}
+function refreshReview(){
+  const sh = S.sheet; if (!sh || sh.type !== 'review') return;
+  const n = (sh._fresh || []).filter(r => sh.pick[r.i]).length;
+  const c = $('#rcount'); if (c) c.textContent = n + ' of ' + sh._fresh.length + ' new people ticked';
+  const t = $('#rtitle'); if (t) t.textContent = 'Add ' + plural(n, 'person', 'people');
+  const b = $('#rgo'); if (b) { b.textContent = n ? 'Add ' + plural(n, 'person', 'people') : 'Update groups'; b.disabled = !(n || ((sh._dupes || []).length && sh.groups.length)); }
+}
+
+/* ---------------- importing ---------------- */
+function parseVcf(text){
+  text = String(text).replace(/\r\n?/g, '\n').replace(/\n[ \t]/g, '').replace(/=\n/g, '');
+  const out = []; let cur = null;
+  text.split('\n').forEach(line => {
+    const L = line.trim(); if (!L) return;
+    if (/^BEGIN:VCARD/i.test(L)) { cur = {fn:'', n:'', tels:[]}; return; }
+    if (/^END:VCARD/i.test(L)) {
+      if (cur) {
+        const tel = cur.tels.find(t => /CELL|MOBILE|IPHONE/.test(t.t)) || cur.tels[0];
+        out.push({n: (cur.fn || cur.n || '').trim(), p: tel ? normPhone(tel.v) : ''});
+      }
+      cur = null; return;
+    }
+    if (!cur) return;
+    const i = L.indexOf(':'); if (i < 0) return;
+    const head = L.slice(0, i), val = L.slice(i + 1);
+    const parts = head.split(';');
+    const key = parts[0].toUpperCase().replace(/^ITEM\d+\./, '');
+    const params = parts.slice(1).join(';').toUpperCase();
+    const dec = v => {
+      if (/QUOTED-PRINTABLE/.test(params)) v = decodeQP(v);
+      return v.replace(/\\,/g, ',').replace(/\\;/g, ';').replace(/\\n/gi, ' ').trim();
+    };
+    if (key === 'FN') cur.fn = dec(val);
+    else if (key === 'N') { const p = val.split(';').map(dec); cur.n = [p[1], p[2], p[0]].filter(Boolean).join(' '); }
+    else if (key === 'TEL') cur.tels.push({v: dec(val), t: params});
+  });
+  return out;
+}
+function decodeQP(s){
+  try {
+    const bytes = [];
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '=' && /^[0-9A-Fa-f]{2}$/.test(s.substr(i + 1, 2))) { bytes.push(parseInt(s.substr(i + 1, 2), 16)); i += 2; }
+      else bytes.push(s.charCodeAt(i) & 255);
+    }
+    return new TextDecoder('utf-8').decode(new Uint8Array(bytes));
+  } catch(e) { return s; }
+}
+function parseCsv(text){
+  text = String(text).replace(/^\uFEFF/, '');
+  const first = text.split('\n')[0] || '';
+  const delim = (first.split('\t').length > first.split(',').length) ? '\t' : (first.split(';').length > first.split(',').length ? ';' : ',');
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === delim) { row.push(f); f = ''; }
+    else if (ch === '\n') { row.push(f); rows.push(row); row = []; f = ''; }
+    else if (ch !== '\r') f += ch;
+  }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  return rows.filter(r => r.some(c => String(c).trim()));
+}
+const looksPhone = v => { const d = String(v || '').replace(/\D/g, ''); return d.length >= 7 && d.length <= 15 && /^[\d\s()+.\-:]+$/.test(String(v).trim().split(':::')[0].trim()); };
+function buildTable(rows, sheets, sheetIdx){
+  rows = rows.map(r => r.map(v => v == null ? '' : String(v)));
+  const width = rows.reduce((m, r) => Math.max(m, r.length), 0);
+  let hdr = -1;
+  for (let i = 0; i < Math.min(6, rows.length); i++) {
+    if (rows[i].some(v => /\b(name|phone|mobile|cell|first|last|tel|telephone|number|surname)\b/i.test(v) && !looksPhone(v))) { hdr = i; break; }
+  }
+  const letter = i => { let s = ''; i++; while (i) { const m = (i - 1) % 26; s = String.fromCharCode(65 + m) + s; i = Math.floor((i - 1) / 26); } return s; };
+  const cols = [];
+  for (let i = 0; i < width; i++) cols.push(hdr > -1 && rows[hdr][i] && rows[hdr][i].trim() ? rows[hdr][i].trim() : 'Column ' + letter(i));
+  const data = rows.slice(hdr + 1);
+  const map = {name:-1, first:-1, last:-1, phone:-1};
+  const find = re => cols.findIndex((c, i) => re.test(c) && !(map.phone === i));
+  if (hdr > -1) {
+    let p = cols.findIndex(c => /mobile|cell/i.test(c) && !/type|label/i.test(c));
+    if (p < 0) p = cols.findIndex(c => /phone.*value/i.test(c));
+    if (p < 0) p = cols.findIndex(c => /phone|tel|number/i.test(c) && !/type|label/i.test(c));
+    map.phone = p;
+    map.first = find(/^(first|given)(\s|_)?(name)?$|first name|given name/i);
+    map.last = find(/^(last|family|surname)(\s|_)?(name)?$|last name|surname|family name/i);
+    map.name = cols.findIndex(c => /^(full\s*name|name|display\s*name|contact\s*name|contact)$/i.test(c.trim()));
+  }
+  if (map.phone < 0) {
+    let best = -1, bestN = 0;
+    for (let i = 0; i < width; i++) { const n = data.filter(r => looksPhone(r[i])).length; if (n > bestN) { best = i; bestN = n; } }
+    map.phone = best;
+  }
+  if (map.name < 0 && map.first < 0) {
+    let best = -1, bestN = 0;
+    for (let i = 0; i < width; i++) { if (i === map.phone) continue; const n = data.filter(r => /[A-Za-z\u0590-\u05FF]/.test(r[i] || '') && !looksPhone(r[i])).length; if (n > bestN) { best = i; bestN = n; } }
+    map.name = best;
+  }
+  return {rows: data, cols, map, sheets, sheetIdx: sheetIdx || 0};
+}
+function tableRecords(T){
+  const m = T.map;
+  return T.rows.map(r => {
+    let n = m.name > -1 ? (r[m.name] || '').trim() : '';
+    if (!n) n = [m.first > -1 ? r[m.first] : '', m.last > -1 ? r[m.last] : ''].map(s => (s || '').trim()).filter(Boolean).join(' ');
+    const raw = m.phone > -1 ? String(r[m.phone] || '').split(':::')[0] : '';
+    return {n, p: normPhone(raw)};
+  });
+}
+function parsePaste(text){
+  const out = [];
+  String(text || '').split(/\n/).forEach(line => {
+    const L = line.trim(); if (!L) return;
+    let m = L.match(/^(.*?)[\s,;\t]+(\+?\(?\d[\d\s().\-]{5,}\d)$/);
+    if (m) { out.push({n: m[1].replace(/[,;\t]+$/, '').trim(), p: normPhone(m[2])}); return; }
+    m = L.match(/^(\+?\(?\d[\d\s().\-]{5,}\d)[\s,;\t]+(.+)$/);
+    if (m) { out.push({n: m[2].trim(), p: normPhone(m[1])}); return; }
+    out.push({n: L, p: ''});
+  });
+  return out;
+}
+let XL = null;
+function loadXLSX(){
+  if (window.XLSX) return Promise.resolve(window.XLSX);
+  if (XL) return XL;
+  XL = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+    s.onload = () => window.XLSX ? res(window.XLSX) : rej(new Error('no XLSX'));
+    s.onerror = () => { XL = null; rej(new Error('load failed')); };
+    document.head.appendChild(s);
+  });
+  return XL;
+}
+async function readAnyFile(file){
+  const name = (file.name || '').toLowerCase();
+  const buf = await file.arrayBuffer();
+  const head = new Uint8Array(buf.slice(0, 4));
+  const isZip = head[0] === 0x50 && head[1] === 0x4B, isOle = head[0] === 0xD0 && head[1] === 0xCF;
+  if (isZip || isOle || /\.(xlsx|xlsm|xls|ods)$/.test(name)) {
+    const X = await loadXLSX();
+    const wb = X.read(buf, {type:'array'});
+    const sheetRows = wb.SheetNames.map(n => X.utils.sheet_to_json(wb.Sheets[n], {header:1, raw:false, defval:''}));
+    let idx = sheetRows.findIndex(r => r.length > 1); if (idx < 0) idx = 0;
+    const T = buildTable(sheetRows[idx] || [], wb.SheetNames, idx);
+    T._all = sheetRows;
+    return {table: T};
+  }
+  const text = new TextDecoder('utf-8').decode(buf);
+  if (/BEGIN:VCARD/i.test(text)) return {vcf: parseVcf(text)};
+  return {table: buildTable(parseCsv(text))};
+}
+function commitImport(sh){
+  const d = D();
+  const groups = sh.groups.filter(g => d.gmap[g]);
+  const byShard = {};
+  const put = (id, val) => { const p = shardPath(id); (byShard[p] = byShard[p] || {})[id] = val; };
+  let added = 0, grouped = 0;
+  (sh._fresh || []).filter(r => sh.pick[r.i]).forEach(r => {
+    if (d.byPhone[phoneKey(r.p)]) return;
+    const id = uid() + added;
+    put(id, {n: r.n || fmtPhone(r.p), p: r.p, g: groups.slice(), c: Date.now()});
+    added++;
+  });
+  if (groups.length && sh.dupesToGroup !== false) {
+    (sh._dupes || []).forEach(r => {
+      const id = d.byPhone[phoneKey(r.p)]; const c = d.contacts[id]; if (!c) return;
+      const g = uniq((c.g || []).concat(groups));
+      if (g.length !== (c.g || []).length) { put(id, {g}); grouped++; }
+    });
+  }
+  Object.keys(byShard).forEach(p => write(p, {c: byShard[p]}));
+  const msg = [];
+  if (added) msg.push('Added ' + plural(added, 'person', 'people') + '.');
+  if (grouped) msg.push('Updated groups for ' + grouped + '.');
+  toast(msg.join(' ') || 'Nothing new to add.');
+  if (groups.length === 1) { S.pGroup = groups[0]; }
+  S.tab = 'people'; LS.set('ci-tab', 'people');
+  closeSheet(); render();
+}
+
+/* ---------------- actions ---------------- */
+function setStatus(ev, cid, v){
+  const e = (ev.st || {})[cid] || {};
+  let p;
+  if (v === 'todo') p = {tx:null, tb:null, r:null, rx:null, rb:null};
+  else if (v === 'sent') p = {r:null, tx: e.tx || Date.now(), tb: e.tb || S.me || null};
+  else p = {r: v};
+  write('events/' + ev.id, {st: {[cid]: p}});
+}
+function markTexted(ev, cid, mode){
+  const e = (ev.st || {})[cid] || {};
+  const p = mode === 'reminder' ? {rx: Date.now(), rb: S.me || null} : (e.tx ? {} : {tx: Date.now(), tb: S.me || null});
+  if (Object.keys(p).length) write('events/' + ev.id, {st: {[cid]: p}});
+}
+function saveEvent(){
+  const sh = S.sheet, v = readForm();
+  const name = (v.name || '').trim(), date = v.date;
+  if (!name) { toast('Give the event a name.'); return; }
+  if (!date) { toast('Pick a date.'); return; }
+  const d = D();
+  const base = {name, date, time: (v.time || '').trim(), place: (v.place || '').trim(), everyone: !!sh.everyone, groups: sh.everyone ? [] : sh.groups.filter(g => d.gmap[g])};
+  if (sh.id) {
+    if (!write('events/' + sh.id, base)) return;
+    closeSheet(); toast('Saved.');
+  } else {
+    const id = 'e' + uid();
+    const src = sh.copy || {};
+    const doc = Object.assign(base, {msg: src.msg || d.settings.msg || DEF_MSG, rmsg: src.rmsg || d.settings.rmsg || DEF_RMSG, st: {}, created: Date.now()});
+    if (!write('events/' + id, doc)) return;
+    S.eventId = id; S.evFilter = 'all'; S.evSearch = ''; S.tab = 'events'; LS.set('ci-tab', 'events');
+    closeSheet(); window.scrollTo(0, 0);
+  }
+  render();
+}
+function saveContact(){
+  const sh = S.sheet, v = readForm();
+  const n = (v.n || '').trim(), p = normPhone(v.p);
+  if (!n) { toast('Add a name.'); return; }
+  if (!validPhone(p)) { toast('Add a mobile number so you can text them.'); return; }
+  const d = D();
+  const other = d.byPhone[phoneKey(p)];
+  if (other && other !== sh.id) { toast('That number already belongs to ' + d.contacts[other].n + '.'); return; }
+  const id = sh.id || ('c' + uid());
+  const val = {n, p, fn: (v.fn || '').trim(), no: (v.no || '').trim(), g: sh.groups.filter(g => d.gmap[g])};
+  if (!sh.id) val.c = Date.now();
+  if (!write(shardPath(id), {c: {[id]: val}})) return;
+  if (!sh.id && sh.forEvent) write('events/' + sh.forEvent, {st: {[id]: {a: true, x: false}}});
+  closeSheet(); toast(sh.id ? 'Saved.' : 'Added ' + n + '.');
+}
+function deleteContacts(ids){
+  const byShard = {};
+  ids.forEach(id => { const p = shardPath(id); (byShard[p] = byShard[p] || {})[id] = null; });
+  Object.keys(byShard).forEach(p => write(p, {c: byShard[p]}));
+}
+function setGroupsFor(ids, fn){
+  const d = D(), byShard = {};
+  ids.forEach(id => {
+    const c = d.contacts[id]; if (!c) return;
+    const before = c.g || [], after = fn(before);
+    if (after.length === before.length && after.every((g, i) => g === before[i])) return;
+    const p = shardPath(id); (byShard[p] = byShard[p] || {})[id] = {g: after};
+  });
+  Object.keys(byShard).forEach(p => write(p, {c: byShard[p]}));
+  return Object.keys(byShard).reduce((n, p) => n + Object.keys(byShard[p]).length, 0);
+}
+async function pickFromPhone(){
+  try {
+    const res = await navigator.contacts.select(['name', 'tel'], {multiple: true});
+    const recs = [];
+    (res || []).forEach(r => {
+      const n = (r.name && r.name[0]) || '';
+      (r.tel || []).slice(0, 1).forEach(t => recs.push({n, p: normPhone(t)}));
+      if (!(r.tel || []).length) recs.push({n, p: ''});
+    });
+    if (!recs.length) return;
+    openSheet({type:'review', recs, groups: [], from: 'picker'});
+  } catch(e) {
+    LS.set('ci-picker', 'no');
+    toast('Your phone won’t share contacts here. Use the contacts file instead.');
+    openSheet({type:'vcf'});
+  }
+}
+async function exportCsv(){
+  const d = D();
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const lines = [['Name','Mobile','Groups','Name in texts','Note'].map(q).join(',')]
+    .concat(d.list.map(c => [c.n, fmtPhone(c.p), contactGroups(c).map(g => d.gmap[g].name).join('; '), c.fn || '', c.no || ''].map(q).join(',')));
+  saveFile('chabad-invite-list-' + todayStr() + '.csv', '\uFEFF' + lines.join('\r\n'), 'text/csv');
+}
+function saveFile(name, text, type){
+  try {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], {type: type + ';charset=utf-8'}));
+    a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+    toast('Downloaded ' + name + '.');
+  } catch(e) { toast('That download didn’t work here.'); }
+}
+const BACKUP_PATH = /^(book\/c[0-7]|meta\/(groups|settings)|events\/[A-Za-z0-9_-]{1,80})$/;
+function backupJson(){
+  const docs = {};
+  Object.keys(S.raw).forEach(p => { if (BACKUP_PATH.test(p) && isObj(S.raw[p])) docs[p] = S.raw[p]; });
+  return JSON.stringify({app: 'chabad-invites', version: 1, exported: new Date().toISOString(), docs});
+}
+async function restoreBackup(obj){
+  if (!FB || !isObj(obj) || !isObj(obj.docs)) throw new Error('not a backup');
+  const entries = Object.keys(obj.docs).filter(p => BACKUP_PATH.test(p) && isObj(obj.docs[p])).map(p => [p, obj.docs[p]]);
+  if (!entries.length) throw new Error('empty');
+  for (let i = 0; i < entries.length; i += 400) {
+    const b = FB.F.writeBatch(FB.fs);
+    entries.slice(i, i + 400).forEach(([p, d]) => b.set(FB.F.doc(FB.fs, p), d));
+    await b.commit();
+  }
+  return entries.length;
+}
+window.__ciRestore = obj => restoreBackup(obj);
+
+/* ---------------- event wiring ---------------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-act]');
+  if (!t) return;
+  const a = t.dataset.act, sh = S.sheet;
+  if (t.tagName === 'SELECT' || (t.tagName === 'INPUT' && t.type !== 'button')) return;
+  const ev = S.eventId ? getEvent(S.eventId) : null;
+  switch (a) {
+    case 'close': closeSheet(); render(); break;
+    case 'tab':
+      S.tab = t.dataset.tab; LS.set('ci-tab', S.tab);
+      if (S.tab !== 'events') S.eventId = null;
+      if (S.tab !== 'people') { S.selecting = false; S.sel.clear(); }
+      closeSheet(); render(); window.scrollTo(0, 0); break;
+    case 'settings': openSheet({type:'settings'}); break;
+    case 'new-event': openSheet({type:'event'}); break;
+    case 'open-event': S.eventId = t.dataset.id; S.evFilter = 'all'; S.evSearch = ''; S.evShow = 120; S.tab = 'events'; LS.set('ci-tab','events'); render(); window.scrollTo(0, 0); break;
+    case 'back': {
+      const was = ev; S.eventId = null;
+      if (was && was.date < todayStr()) { S.tab = 'history'; LS.set('ci-tab','history'); }
+      render(); window.scrollTo(0, 0); break;
+    }
+    case 'event-menu': openSheet({type:'eventMenu', id: S.eventId}); break;
+    case 'edit-event': openSheet({type:'event', id: S.eventId}); break;
+    case 'copy-event': if (ev) openSheet({type:'event', copy: {name: ev.name, time: ev.time, place: ev.place, everyone: ev.everyone, groups: ev.groups, msg: ev.msg, rmsg: ev.rmsg}}); break;
+    case 'delete-event': openSheet({type:'confirm', title:'Delete this event?', text:'Its invite statuses and attendance go with it. The people stay on your list.', yes:'Delete event', run(){ const id = S.eventId; S.eventId = null; removeDoc('events/' + id); toast('Event deleted.'); }}); break;
+    case 'confirm-yes': { const run = sh && sh.run; closeSheet(); if (run) run(); render(); break; }
+    case 'ev-everyone': sh.everyone = t.dataset.v === '1'; keepForm(() => renderSheet()); break;
+    case 'ev-group': case 'c-group': case 'r-group': {
+      const g = t.dataset.g, i = sh.groups.indexOf(g);
+      if (i > -1) sh.groups.splice(i, 1); else sh.groups.push(g);
+      keepForm(() => renderSheet()); break;
+    }
+    case 'ev-newgroup': case 'c-newgroup': case 'r-newgroup': {
+      const inp = $('#sheet [name="newgroup"]'); const id = newGroup(inp && inp.value);
+      if (id) { if (sh.groups.indexOf(id) < 0) sh.groups.push(id); inp.value = ''; keepForm(() => renderSheet()); }
+      else toast('Type a group name first.');
+      break;
+    }
+    case 'save-event': saveEvent(); break;
+    case 'edit-msg': openSheet({type:'msg', id: S.eventId, which:'invite'}); break;
+    case 'edit-default-msg': openSheet({type:'msg', which:'invite'}); break;
+    case 'msg-which': {
+      const txt = $('#msgtext'); if (txt) sh['t_' + (sh.which || 'invite')] = txt.value;
+      const ad = $('#sheet [name="asdefault"]'); if (ad) sh.asdef = ad.checked;
+      sh.which = t.dataset.w; sh.text = sh['t_' + sh.which] != null ? sh['t_' + sh.which] : null; renderSheet(); break;
+    }
+    case 'ins': {
+      const txt = $('#msgtext'); if (!txt) break;
+      const ins = '{' + t.dataset.k + '}';
+      const s0 = txt.selectionStart != null ? txt.selectionStart : txt.value.length, s1 = txt.selectionEnd != null ? txt.selectionEnd : s0;
+      txt.value = txt.value.slice(0, s0) + ins + txt.value.slice(s1);
+      txt.focus(); txt.setSelectionRange(s0 + ins.length, s0 + ins.length);
+      updatePreview(); break;
+    }
+    case 'msg-reset': { const txt = $('#msgtext'); if (txt) { txt.value = sh.which === 'reminder' ? DEF_RMSG : DEF_MSG; updatePreview(); } break; }
+    case 'save-msg': {
+      const txt = $('#msgtext'); if (!txt) break;
+      sh['t_' + (sh.which || 'invite')] = txt.value;
+      const asDef = $('#sheet [name="asdefault"]');
+      const patch = {};
+      if (sh.t_invite != null) patch.msg = sh.t_invite.trim() || DEF_MSG;
+      if (sh.t_reminder != null) patch.rmsg = sh.t_reminder.trim() || DEF_RMSG;
+      if (sh.id) write('events/' + sh.id, patch);
+      if (!sh.id || (asDef && asDef.checked)) write('meta/settings', patch);
+      toast(patch.msg && patch.rmsg ? 'Messages saved.' : patch.rmsg ? 'Reminder saved.' : 'Invite saved.');
+      closeSheet(); render();
+      break;
+    }
+    case 'evfilter': S.evFilter = t.dataset.f; S.evShow = 120; render(); break;
+    case 'evmore': S.evShow += 200; render(); break;
+    case 'party': if (ev) { const e = (ev.st || {})[t.dataset.id] || {}; const n = Math.min(30, Math.max(1, (e.n || 1) + Number(t.dataset.d))); write('events/' + ev.id, {st: {[t.dataset.id]: {n}}}); } break;
+    case 'came': if (ev) { const e = (ev.st || {})[t.dataset.id] || {}; write('events/' + ev.id, {st: {[t.dataset.id]: {came: !e.came}}}); } break;
+    case 'all-came': if (ev) {
+      const st = ev.st || {}, p = {};
+      audience(ev).forEach(c => { if ((st[c.id] || {}).r === 'yes' && !(st[c.id] || {}).came) p[c.id] = {came: true}; });
+      if (Object.keys(p).length) write('events/' + ev.id, {st: p});
+      break;
+    }
+    case 'text-one': {
+      const cid = t.dataset.id, c = ev && D().contacts[cid]; if (!c) break;
+      const person = Object.assign({id: cid}, c), evId = ev.id;
+      openApp(smsHref(person, compose(ev.msg || DEF_MSG, person, ev)), st => {
+        const sh2 = S.sheet;
+        if (st === 'opened') {
+          const evx = getEvent(evId); if (evx) markTexted(evx, cid, 'invite');
+          if (sh2 && sh2.type === 'send' && sh2.only === cid) { closeSheet(); render(); }
+          toast('Marked ' + greetName(person) + ' as texted.');
+        } else if (!sh2) {
+          openSheet({type:'send', id: evId, mode: 'invite', only: cid, cur: cid, phase: 'failed', failedOnce: true, opened: false, mine: {}, skipped: {}, count: 0});
+        }
+      });
+      break;
+    }
+    case 'call': {
+      const p = t.dataset.p;
+      openApp('tel:' + p, st => { if (st === 'failed') copyText(fmtPhone(p)).then(ok => toast(ok ? 'Couldn’t open the phone app from here. The number is copied.' : 'Couldn’t open the phone app from here. The number is ' + fmtPhone(p) + '.')); });
+      break;
+    }
+    case 'send': if (ev) openSheet({type:'send', id: ev.id, mode: t.dataset.mode, cur: null, phase: 'ready', opened: false, mine: {}, skipped: {}, count: 0}); break;
+    case 'set-me': S.me = t.dataset.v; LS.set('ci-me', S.me); renderSheet(); break;
+    case 'set-me-typed': { const v = ($('#sheet [name="mename"]') || {}).value || ''; if (v.trim()) { S.me = v.trim(); LS.set('ci-me', S.me); renderSheet(); } break; }
+    case 'save-me': { const v = (($('#sheet [name="me"]') || {}).value || '').trim(); S.me = v; LS.set('ci-me', v); toast(v ? 'This phone is ' + v + '.' : 'Name cleared.'); break; }
+    case 'order': S.order = t.dataset.v; LS.set('ci-order', S.order); if (sh && (!sh.phase || sh.phase === 'ready')) sh.cur = null; renderSheet(); break;
+    case 'send-open': {
+      if (!sh) break;
+      const evx = getEvent(sh.id), cid = sh.cur, c = D().contacts[cid]; if (!evx || !c) break;
+      const person = Object.assign({id: cid}, c);
+      const text = compose(sh.mode === 'reminder' ? (evx.rmsg || DEF_RMSG) : (evx.msg || DEF_MSG), person, evx);
+      const mode = sh.mode;
+      openApp(smsHref(person, text), st => {
+        if (st === 'opened') {
+          const e2 = getEvent(sh.id); if (e2) markTexted(e2, cid, mode);
+          if (S.sheet !== sh || sh.cur !== cid) return;
+          if (!sh.opened) { sh.mine[cid] = true; sh.count++; }
+          sh.opened = true; sh.phase = 'opened';
+          if (sh.only) { closeSheet(); render(); toast('Marked ' + greetName(person) + ' as texted.'); return; }
+        } else {
+          if (S.sheet !== sh || sh.cur !== cid) return;
+          sh.phase = 'failed'; sh.failedOnce = true;
+        }
+        renderSheet();
+      });
+      if (S.sheet === sh && WATCH) { sh.phase = 'waiting'; renderSheet(); }
+      break;
+    }
+    case 'send-next': stopWatch(); sh.opened = false; sh.phase = 'ready'; sh.cur = null; renderSheet(); break;
+    case 'send-skip': stopWatch(); sh.skipped[sh.cur] = true; sh.opened = false; sh.phase = 'ready'; sh.cur = null; renderSheet(); break;
+    case 'sent-manual': {
+      if (!sh) break;
+      stopWatch();
+      const evx = getEvent(sh.id), cid = sh.cur, c = D().contacts[cid];
+      if (evx && c) { markTexted(evx, cid, sh.mode); if (!sh.mine[cid]) { sh.mine[cid] = true; sh.count++; } }
+      if (sh.only) { closeSheet(); render(); if (c) toast('Marked ' + greetName(c) + ' as texted.'); break; }
+      sh.opened = false; sh.phase = 'ready'; sh.cur = null; renderSheet();
+      break;
+    }
+    case 'copy-msg': case 'copy-num': case 'copy-link': {
+      let text = APP_URL, done = 'Link copied. Paste it into Chrome’s address bar.';
+      if (a !== 'copy-link') {
+        stopWatch();
+        const evx = sh && getEvent(sh.id), c = sh && D().contacts[sh.cur]; if (!evx || !c) break;
+        const person = Object.assign({id: sh.cur}, c);
+        text = a === 'copy-num' ? fmtPhone(c.p) : compose(sh.mode === 'reminder' ? (evx.rmsg || DEF_RMSG) : (evx.msg || DEF_MSG), person, evx);
+        done = a === 'copy-num' ? 'Number copied.' : 'Message copied. Paste it in Messages.';
+      }
+      copyText(text).then(ok => toast(ok ? done : 'Couldn’t copy here. Press and hold the text to copy it.'));
+      break;
+    }
+    case 'add-to-event': openSheet({type:'addTo', id: S.eventId, q: ''}); break;
+    case 'add-to-event-go': if (ev) { write('events/' + ev.id, {st: {[t.dataset.id]: {a: true, x: false}}}); const r = $('#addresults'); if (r) r.innerHTML = addResults(sh, getEvent(ev.id)); toast('Added.'); } break;
+    case 'add-new-to-event': openSheet({type:'contact', forEvent: S.eventId}); break;
+    case 'remove-from-event': if (sh && sh.fromEvent) { write('events/' + sh.fromEvent, {st: {[sh.id]: {x: true, a: false}}}); closeSheet(); toast('Taken off this event.'); } break;
+    case 'contact': openSheet({type:'contact', id: t.dataset.id, fromEvent: S.tab === 'events' && S.eventId ? S.eventId : null}); break;
+    case 'new-contact': openSheet({type:'contact', preset: S.pGroup !== 'all' && S.pGroup !== 'none' ? [S.pGroup] : []}); break;
+    case 'save-contact': saveContact(); break;
+    case 'delete-contact': { const id = sh.id, n = (D().contacts[id] || {}).n; openSheet({type:'confirm', title:'Delete ' + n + '?', text:'They’ll be taken off your list and every event.', yes:'Delete', run(){ deleteContacts([id]); toast('Deleted.'); }}); break; }
+    case 'add-people': openSheet({type:'add'}); break;
+    case 'pick-contacts': pickFromPhone(); break;
+    case 'vcf-help': openSheet({type:'vcf'}); break;
+    case 'paste': openSheet({type:'paste'}); break;
+    case 'paste-go': { const v = readForm().bulk || ''; const rows = parseCsv(v);
+      if (rows.length > 1 && (rows[0].length >= 3 || rows[0].some(c => /\b(name|phone|mobile|cell|first|last)\b/i.test(c)))) { openSheet({type:'review', table: buildTable(rows), groups: [], from:'table'}); break; }
+      const recs = parsePaste(v); if (!recs.length) { toast('Paste at least one line.'); break; } openSheet({type:'review', recs, groups: [], from:'paste'}); break; }
+    case 'r-all': { reviewShown(sh).forEach(r => { sh.pick[r.i] = t.dataset.v === '1'; }); const l = $('#rlist'); if (l) l.innerHTML = reviewList(sh); refreshReview(); break; }
+    case 'r-more': { sh.show = (sh.show || 300) + 300; const l = $('#rlist'); if (l) l.innerHTML = reviewList(sh); break; }
+    case 'r-go': commitImport(sh); break;
+    case 'pgroup': S.pGroup = t.dataset.g; S.pShow = 150; render(); break;
+    case 'pmore': S.pShow += 300; render(); break;
+    case 'hgroup': S.hGroup = t.dataset.g; render(); break;
+    case 'groups': openSheet({type:'groups'}); break;
+    case 'g-add': { const inp = $('#sheet [name="newgroup"]'); if (newGroup(inp && inp.value)) { renderSheet(); } else toast('Type a group name first.'); break; }
+    case 'g-color': { const g = D().gmap[t.dataset.g]; if (g) { write('meta/groups', {g: {[g.id]: {color: ((g.color || 0) + 1) % 8}}}); renderSheet(); } break; }
+    case 'g-delete': { const g = D().gmap[t.dataset.g]; if (!g) break; const n = D().list.filter(c => (c.g || []).indexOf(g.id) > -1).length;
+      openSheet({type:'confirm', title:'Delete the ' + g.name + ' group?', text: n ? 'The ' + plural(n, 'person', 'people') + ' in it stay on your list.' : 'No one is in it.', yes:'Delete group', run(){ write('meta/groups', {g: {[g.id]: null}}); setTimeout(() => openSheet({type:'groups'}), 50); }}); break; }
+    case 'select-mode': S.selecting = !S.selecting; S.sel.clear(); render(); break;
+    case 'sel-all': {
+      const d = D();
+      let shown = d.list.filter(c => S.pGroup === 'all' ? true : S.pGroup === 'none' ? !contactGroups(c).length : (c.g || []).indexOf(S.pGroup) > -1);
+      filterBySearch(shown, S.pSearch).forEach(c => S.sel.add(c.id)); render(); break;
+    }
+    case 'sel-group': openSheet({type:'pickGroup'}); break;
+    case 'sel-ungroup': openSheet({type:'pickGroup', remove: true}); break;
+    case 'sel-group-go': { const g = t.dataset.g; const n = setGroupsFor(Array.from(S.sel), arr => uniq(arr.concat([g]))); toast('Added ' + plural(n, 'person', 'people') + ' to ' + D().gmap[g].name + '.'); closeSheet(); S.selecting = false; S.sel.clear(); render(); break; }
+    case 'sel-group-new': { const inp = $('#sheet [name="newgroup"]'); const g = newGroup(inp && inp.value); if (!g) { toast('Type a group name first.'); break; } const n = setGroupsFor(Array.from(S.sel), arr => uniq(arr.concat([g]))); toast('Added ' + plural(n, 'person', 'people') + '.'); closeSheet(); S.selecting = false; S.sel.clear(); render(); break; }
+    case 'sel-ungroup-go': { const g = t.dataset.g; const name = (D().gmap[g] || {}).name; const n = setGroupsFor(Array.from(S.sel), arr => arr.filter(x => x !== g)); toast('Removed ' + plural(n, 'person', 'people') + ' from ' + name + '.'); closeSheet(); S.selecting = false; S.sel.clear(); render(); break; }
+    case 'sel-delete': { const ids = Array.from(S.sel); openSheet({type:'confirm', title:'Delete ' + plural(ids.length, 'person', 'people') + '?', text:'They’ll be taken off your list and every event.', yes:'Delete', run(){ deleteContacts(ids); S.selecting = false; S.sel.clear(); toast('Deleted.'); }}); break; }
+    case 'export': exportCsv(); break;
+    case 'backup': saveFile('chabad-invites-backup-' + todayStr() + '.json', backupJson(), 'application/json'); break;
+    case 'sign-in': signIn(); break;
+    case 'sign-out': closeSheet(); if (FB) FB.AU.signOut(FB.auth).then(() => location.reload(), () => location.reload()); break;
+    case 'retry-access': checkAccess(); break;
+    case 'reload': location.reload(); break;
+    case 'member-add': {
+      const inp = $('#sheet [name="newmember"]'); const v = String(inp && inp.value || '').trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { toast('Type a full email address, like name@gmail.com.'); break; }
+      FB.F.updateDoc(FB.F.doc(FB.fs, 'access/members'), {emails: FB.F.arrayUnion(v)})
+        .then(() => toast('Added ' + v + '. They can sign in now.'), () => toast('Couldn’t add them. Check your connection and try again.'));
+      if (inp) inp.value = '';
+      break;
+    }
+    case 'member-remove': {
+      const v = t.dataset.e;
+      openSheet({type:'confirm', title:'Remove ' + v + '?', text:'They won’t be able to open the list anymore. You can add them back later.', yes:'Remove', run(){
+        FB.F.updateDoc(FB.F.doc(FB.fs, 'access/members'), {emails: FB.F.arrayRemove(v)}).then(() => toast('Removed.'), () => toast('Couldn’t remove them. Try again.'));
+        setTimeout(() => openSheet({type:'settings'}), 50);
+      }});
+      break;
+    }
+  }
+});
+function keepForm(fn){
+  const vals = {};
+  document.querySelectorAll('#sheet [name]').forEach(el => { vals[el.name] = el.type === 'checkbox' ? el.checked : el.value; });
+  fn();
+  document.querySelectorAll('#sheet [name]').forEach(el => { if (vals[el.name] != null) { if (el.type === 'checkbox') el.checked = vals[el.name]; else el.value = vals[el.name]; } });
+}
+function updatePreview(){
+  const sh = S.sheet, txt = $('#msgtext'), pv = $('#msgprev');
+  if (!sh || !txt || !pv) return;
+  const ev = sh.id ? getEvent(sh.id) : {name:'Chanukah Party', date: todayStr(), time:'7:30 PM', place:'the Chabad House'};
+  pv.textContent = compose(txt.value, D().list[0] || {n:'Sarah Levine'}, ev);
+}
+document.addEventListener('change', e => {
+  const t = e.target, a = t.dataset ? t.dataset.act : null, sh = S.sheet;
+  if (a === 'status') { const ev = getEvent(S.eventId); if (ev) setStatus(ev, t.dataset.id, t.value); }
+  else if (a === 'sel') { if (t.checked) S.sel.add(t.dataset.id); else S.sel.delete(t.dataset.id); renderSelbar(); }
+  else if (a === 'r-pick') { sh.pick[t.dataset.i] = t.checked; refreshReview(); }
+  else if (a === 'r-dupes') { sh.dupesToGroup = t.checked; }
+  else if (a === 'map') { sh.table.map[t.dataset.k] = Number(t.value); sh.pick = {}; keepForm(() => renderSheet()); }
+  else if (a === 'map-sheet') {
+    const T = sh.table, i = Number(t.value);
+    const nt = buildTable(T._all[i] || [], T.sheets, i); nt._all = T._all; sh.table = nt; sh.pick = {}; keepForm(() => renderSheet());
+  }
+  else if (a === 'g-name') { const v = t.value.trim(); if (v) write('meta/groups', {g: {[t.dataset.g]: {name: v}}}); }
+  else if (t.id === 'f-backup' && t.files && t.files[0]) {
+    t.files[0].text().then(txt => {
+      let obj = null; try { obj = JSON.parse(txt); } catch(e) {}
+      if (!obj || !isObj(obj.docs)) { toast('That isn’t a backup from this app.'); return; }
+      const n = Object.keys(obj.docs).filter(p => BACKUP_PATH.test(p)).length;
+      openSheet({type:'confirm', title:'Restore this backup?', text:'Everything in the backup replaces what’s in the app now: people, groups, events and history (' + n + ' saved parts).', yes:'Restore', run(){
+        restoreBackup(obj).then(() => toast('Backup restored.'), () => toast('Couldn’t restore that backup.'));
+      }});
+    }, () => toast('Couldn’t read that file.'));
+  }
+  else if ((t.id === 'f-table' || t.id === 'f-vcf') && t.files && t.files[0]) {
+    const f = t.files[0]; toast('Reading ' + (f.name || 'your file') + '…');
+    readAnyFile(f).then(r => {
+      if (r.vcf) {
+        if (!r.vcf.length) { toast('No contacts found in that file.'); return; }
+        openSheet({type:'review', recs: r.vcf, groups: [], from:'vcf'});
+      } else openSheet({type:'review', table: r.table, groups: [], from:'table'});
+    }).catch(() => toast(/\.(xlsx|xls)$/i.test(f.name || '') ? 'Couldn’t open that Excel file. Save it as .csv and choose it again.' : 'Couldn’t read that file.'));
+  }
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.id === 'psearch') { S.pSearch = t.value; S.pShow = 150; render(); }
+  else if (t.id === 'evsearch') { S.evSearch = t.value; S.evShow = 120; render(); }
+  else if (t.id === 'msgtext') updatePreview();
+  else if (t.id === 'rsearch' && S.sheet) { S.sheet.rq = t.value; const l = $('#rlist'); if (l) l.innerHTML = reviewList(S.sheet); }
+  else if (t.id === 'addsearch' && S.sheet) { S.sheet.q = t.value; const ev = getEvent(S.sheet.id); const r = $('#addresults'); if (r && ev) r.innerHTML = addResults(S.sheet, ev); }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.target && e.target.name === 'newmember') { e.preventDefault(); const b = document.querySelector('#sheet [data-act="member-add"]'); if (b) b.click(); return; }
+  if (e.key === 'Escape' && S.sheet) { closeSheet(); render(); }
+  if (e.key === 'Enter' && e.target && e.target.name === 'newgroup' && S.sheet) {
+    e.preventDefault();
+    const map = {event:'ev-newgroup', contact:'c-newgroup', review:'r-newgroup', groups:'g-add', pickGroup:'sel-group-new'};
+    const b = document.querySelector('#sheet [data-act="' + map[S.sheet.type] + '"]'); if (b) b.click();
+  }
+});
+
+/* ---------------- start ---------------- */
+let FB = null;
+const mapCode = c => String(c || 'unknown').replace(/^firestore\//, '').replace(/-/g, '_');
+const wrapErr = e => { throw {code: mapCode(e && e.code), message: e && e.message}; };
+function stripNulls(o){
+  const out = {};
+  Object.keys(o).forEach(k => { const v = o[k]; out[k] = v === null ? FB.F.deleteField() : isObj(v) ? stripNulls(v) : v; });
+  return out;
+}
+function makeDb(){
+  const F = FB.F, fs = FB.fs;
+  return {
+    doc(path){ const ref = F.doc(fs, path); return {
+      update: p => F.setDoc(ref, stripNulls(p), {merge: true}).catch(wrapErr),
+      set: p => F.setDoc(ref, stripNulls(p), {merge: true}).catch(wrapErr),
+      delete: () => F.deleteDoc(ref).catch(wrapErr)
+    }; },
+    collection(prefix){ return { onSnapshot(cb, err){
+      return F.onSnapshot(F.collection(fs, prefix), snap => cb({
+        docs: snap.docs.map(d => ({id: d.id, data: () => d.data(), metadata: d.metadata})),
+        metadata: snap.metadata
+      }), e => { if (err) err({code: mapCode(e && e.code), message: e && e.message}); });
+    } }; }
+  };
+}
+async function signIn(){
+  if (!FB) return;
+  const provider = new FB.AU.GoogleAuthProvider();
+  provider.setCustomParameters({prompt: 'select_account'});
+  try { await FB.AU.signInWithPopup(FB.auth, provider); }
+  catch(e) {
+    const c = e && e.code;
+    if (c === 'auth/popup-blocked' || c === 'auth/operation-not-supported-in-this-environment') { FB.AU.signInWithRedirect(FB.auth, provider); return; }
+    authError(e);
+  }
+}
+function authError(e){
+  const c = e && e.code;
+  if (!c || c === 'auth/popup-closed-by-user' || c === 'auth/cancelled-popup-request' || c === 'auth/user-cancelled') return;
+  if (c === 'auth/unauthorized-domain') toast('This web address isn’t approved for sign-in yet.');
+  else if (c === 'auth/operation-not-allowed') toast('Google sign-in isn’t turned on for this app yet.');
+  else if (c === 'auth/network-request-failed') toast('Couldn’t reach Google. Check your connection and try again.');
+  else toast('Sign-in didn’t work. Please try again.');
+}
+let started = false;
+async function checkAccess(){
+  S.auth = 'loading'; render();
+  const F = FB.F, ref = F.doc(FB.fs, 'access/members');
+  let snap = null;
+  try { snap = await F.getDoc(ref); }
+  catch(e) {
+    const c = mapCode(e && e.code);
+    if (c === 'permission_denied') { S.auth = 'denied'; render(); return; }
+    try { snap = await F.getDocFromCache(ref); }
+    catch(e2) { S.auth = 'error'; S.err = 'Can’t reach your saved list. Check your internet connection and reload.'; render(); return; }
+  }
+  if (!snap.exists()) {
+    try { await F.setDoc(ref, {owner: S.user.email, emails: [S.user.email]}); }
+    catch(e) { S.auth = 'denied'; render(); return; }
+  }
+  startApp();
+}
+function startApp(){
+  S.auth = 'in';
+  if (started) { render(); return; }
+  started = true;
+  DB = makeDb(); paintSync();
+  FB.F.onSnapshot(FB.F.doc(FB.fs, 'access/members'), d => {
+    S.members = d.exists() ? d.data() : null;
+    S.isOwner = !!(S.members && S.user && S.members.owner === S.user.email);
+    schedule();
+  }, e => { if (mapCode(e && e.code) === 'permission_denied') { S.auth = 'denied'; render(); } });
+  loadTimer = setTimeout(() => {
+    if (!(S.firm.book && S.firm.meta && S.firm.events)) { S.offline = true; S.ready = true; paintBanner(); render(); }
+  }, 10000);
+  ['book','meta','events'].forEach(subscribe);
+  render();
+}
+render();
+(async function init(){
+  if (!FIREBASE_CONFIG.apiKey) { S.auth = 'config'; render(); return; }
+  let mods;
+  try { mods = await Promise.all([import(FB_SDK + 'firebase-app.js'), import(FB_SDK + 'firebase-auth.js'), import(FB_SDK + 'firebase-firestore.js')]); }
+  catch(e) { S.auth = 'error'; S.err = 'Couldn’t load the app. Check your internet connection and reload.'; render(); return; }
+  const [A, AU, F] = mods;
+  const app = A.initializeApp(FIREBASE_CONFIG);
+  let fs;
+  try { fs = F.initializeFirestore(app, {localCache: F.persistentLocalCache({tabManager: F.persistentMultipleTabManager()})}); }
+  catch(e) { fs = F.getFirestore(app); }
+  FB = {AU, F, fs, auth: AU.getAuth(app)};
+  AU.getRedirectResult(FB.auth).catch(authError);
+  AU.onAuthStateChanged(FB.auth, user => {
+    if (!user) { S.auth = 'out'; S.user = null; render(); return; }
+    S.user = {email: String(user.email || '').toLowerCase(), name: user.displayName || ''};
+    if (S.auth !== 'in') checkAccess();
+  });
+})();
+})();
+</script>
+</body>
+</html>
