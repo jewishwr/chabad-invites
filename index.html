@@ -298,6 +298,9 @@ h2.sec{font:700 20px/1.2 "Frank Ruhl Libre",Georgia,serif;margin:28px 0 10px}
 .gate .btn.quiet{color:var(--hero-ink);border-color:var(--hero-line)}
 .gate .who{display:block;color:var(--gold);font-weight:500;margin:0 0 6px;word-break:break-all}
 .gate .g{width:20px;height:20px;flex:none}
+.gate .gsi{display:flex;justify-content:center;min-height:44px;margin:0 auto 6px;max-width:360px}
+.gate .alt{display:block;margin:12px auto 0;color:var(--hero-muted);font-size:14px}
+.gate .busy{color:var(--hero-ink);margin:6px 0 0}
 .members{list-style:none;margin:0 0 12px;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .members li{display:flex;align-items:center;gap:10px;padding:9px 10px 9px 14px;border-top:1px solid var(--line);font-size:15px;min-height:52px}
 .members li:first-child{border-top:0}
@@ -338,6 +341,7 @@ h2.sec{font:700 20px/1.2 "Frank Ruhl Libre",Georgia,serif;margin:28px 0 10px}
    what protects the data is the project's security rules (only approved Google
    accounts can read or write). */
 const FIREBASE_CONFIG = window.FIREBASE_CONFIG || {};   /* set in config.js */
+const GOOGLE_CLIENT_ID = window.GOOGLE_CLIENT_ID || '';  /* set in config.js; enables Google's own sign-in button */
 const FB_SDK = 'https://www.gstatic.com/firebasejs/12.19.0/';
 
 /* ---------------- icons ---------------- */
@@ -680,7 +684,7 @@ let rq = false;
 function schedule(){ if (rq) return; rq = true; requestAnimationFrame(() => { rq = false; render(); if (S.sheet && S.sheet.live) renderSheet(); }); }
 function toast(msg){
   const t = $('#toast'); t.textContent = msg; t.classList.add('show');
-  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 3200);
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), msg.length > 60 ? 6000 : 3200);
 }
 function paintSync(){
   const el = $('#sync');
@@ -707,7 +711,7 @@ function render(){
   document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === S.tab ? 'page' : 'false'));
   const inApp = S.auth === 'in';
   $('#tabs').hidden = !inApp; $('#setbtn').hidden = !inApp;
-  if (!inApp) { app.innerHTML = gateHtml(); $('#selbar').hidden = true; return; }
+  if (!inApp) { app.innerHTML = gateHtml(); $('#selbar').hidden = true; if (S.auth === 'out') mountGsi(); return; }
   if (!S.ready) { app.innerHTML = '<p class="loading">Opening your list…</p>'; $('#selbar').hidden = true; return; }
   if (S.tab === 'events') app.innerHTML = S.eventId && getEvent(S.eventId) ? renderEvent(getEvent(S.eventId)) : renderEvents();
   else if (S.tab === 'people') app.innerHTML = renderPeople();
@@ -722,8 +726,14 @@ function render(){
 /* ---------------- sign-in screens ---------------- */
 const GLOGO = '<svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
 function gateHtml(){
-  if (S.auth === 'out') return '<section class="gate"><h1>Chabad Invites</h1><p>Sign in with your Google account to see your invite list.</p>'
-    + '<button class="btn gold" type="button" data-act="sign-in">' + GLOGO + 'Sign in with Google</button></section>';
+  if (S.auth === 'out') {
+    let h = '<section class="gate"><h1>Chabad Invites</h1><p>Sign in with your Google account to see your invite list.</p>';
+    if (S.signingIn) return h + '<p class="busy">Signing you in…</p></section>';
+    if (useGsi()) h += '<div id="gsi-btn" class="gsi" aria-live="polite"></div>'
+      + '<button class="linkbtn alt" type="button" data-act="sign-in">Button not working? Sign in another way</button>';
+    else h += '<button class="btn gold" type="button" data-act="sign-in">' + GLOGO + 'Sign in with Google</button>';
+    return h + '</section>';
+  }
   if (S.auth === 'denied') return '<section class="gate"><h1>Not on the list yet</h1><span class="who">' + esc(S.user ? S.user.email : '') + '</span>'
     + '<p>This Google account doesn’t have access. Ask whoever manages the app to add this address in Settings, then tap Try again.</p>'
     + '<button class="btn gold" type="button" data-act="retry-access">Try again</button>'
@@ -1783,7 +1793,11 @@ document.addEventListener('click', e => {
     case 'export': exportCsv(); break;
     case 'backup': saveFile('chabad-invites-backup-' + todayStr() + '.json', backupJson(), 'application/json'); break;
     case 'sign-in': signIn(); break;
-    case 'sign-out': closeSheet(); if (FB) FB.AU.signOut(FB.auth).then(() => location.reload(), () => location.reload()); break;
+    case 'sign-out':
+      closeSheet();
+      try { if (window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect(); } catch(e) {}
+      if (FB) FB.AU.signOut(FB.auth).then(() => location.reload(), () => location.reload());
+      break;
     case 'retry-access': checkAccess(); break;
     case 'reload': location.reload(); break;
     case 'member-add': {
@@ -1891,24 +1905,66 @@ function makeDb(){
     } }; }
   };
 }
+/* Sign-in.
+   Preferred: Google Identity Services ("Sign in with Google" button / account picker).
+   It hands the app a Google ID token directly, which works on Android Chrome, where the
+   Firebase popup/redirect hand-off between two sites is often blocked.
+   Fallback: Firebase's popup (fine on computers). No redirect flow: it fails on browsers
+   that partition third-party storage. */
+let GSI_LOAD = null, GSI_INIT = false;
+const useGsi = () => !!GOOGLE_CLIENT_ID && !S.gsiFailed;
+function loadGsi(){
+  if (window.google && google.accounts && google.accounts.id) return Promise.resolve();
+  if (GSI_LOAD) return GSI_LOAD;
+  GSI_LOAD = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://accounts.google.com/gsi/client'; s.async = true;
+    const t = setTimeout(() => rej(new Error('timeout')), 10000);
+    s.onload = () => { clearTimeout(t); (window.google && google.accounts && google.accounts.id) ? res() : rej(new Error('no gsi')); };
+    s.onerror = () => { clearTimeout(t); rej(new Error('load failed')); };
+    document.head.appendChild(s);
+  });
+  return GSI_LOAD;
+}
+function mountGsi(){
+  if (!useGsi() || !document.getElementById('gsi-btn')) return;
+  loadGsi().then(() => {
+    const el = document.getElementById('gsi-btn');
+    if (!el || S.auth !== 'out') return;
+    if (!GSI_INIT) {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID, callback: onGsi, auto_select: false, cancel_on_tap_outside: true,
+        context: 'signin', ux_mode: 'popup', itp_support: true, use_fedcm_for_prompt: true, use_fedcm_for_button: true
+      });
+      GSI_INIT = true;
+    }
+    const w = Math.round(Math.max(220, Math.min(360, el.clientWidth || 300)));
+    google.accounts.id.renderButton(el, {type: 'standard', theme: 'outline', size: 'large', text: 'signin_with', shape: 'pill', logo_alignment: 'center', width: w});
+    if (!S.promptShown) { S.promptShown = true; try { google.accounts.id.prompt(); } catch(e) {} }
+  }, () => { S.gsiFailed = true; render(); });
+}
+function onGsi(resp){
+  if (!resp || !resp.credential || !FB) return;
+  S.signingIn = true; render();
+  FB.AU.signInWithCredential(FB.auth, FB.AU.GoogleAuthProvider.credential(resp.credential))
+    .catch(e => { S.signingIn = false; render(); authError(e); });
+}
 async function signIn(){
   if (!FB) return;
   const provider = new FB.AU.GoogleAuthProvider();
   provider.setCustomParameters({prompt: 'select_account'});
   try { await FB.AU.signInWithPopup(FB.auth, provider); }
-  catch(e) {
-    const c = e && e.code;
-    if (c === 'auth/popup-blocked' || c === 'auth/operation-not-supported-in-this-environment') { FB.AU.signInWithRedirect(FB.auth, provider); return; }
-    authError(e);
-  }
+  catch(e) { authError(e); }
 }
 function authError(e){
-  const c = e && e.code;
+  const c = (e && e.code) || '';
   if (!c || c === 'auth/popup-closed-by-user' || c === 'auth/cancelled-popup-request' || c === 'auth/user-cancelled') return;
-  if (c === 'auth/unauthorized-domain') toast('This web address isn’t approved for sign-in yet.');
-  else if (c === 'auth/operation-not-allowed') toast('Google sign-in isn’t turned on for this app yet.');
-  else if (c === 'auth/network-request-failed') toast('Couldn’t reach Google. Check your connection and try again.');
-  else toast('Sign-in didn’t work. Please try again.');
+  const code = ' (' + c.replace(/^auth\//, '') + ')';
+  if (c === 'auth/unauthorized-domain') toast('This web address isn’t approved for sign-in yet' + code + '.');
+  else if (c === 'auth/operation-not-allowed') toast('Google sign-in isn’t turned on for this app yet' + code + '.');
+  else if (c === 'auth/network-request-failed') toast('Couldn’t reach Google. Check your connection and try again' + code + '.');
+  else if (c === 'auth/popup-blocked') toast('The sign-in window was blocked. Allow pop-ups for this site and try again' + code + '.');
+  else toast('Sign-in didn’t work' + code + '. Please try again.');
 }
 let started = false;
 async function checkAccess(){
@@ -1956,9 +2012,9 @@ render();
   try { fs = F.initializeFirestore(app, {localCache: F.persistentLocalCache({tabManager: F.persistentMultipleTabManager()})}); }
   catch(e) { fs = F.getFirestore(app); }
   FB = {AU, F, fs, auth: AU.getAuth(app)};
-  AU.getRedirectResult(FB.auth).catch(authError);
   AU.onAuthStateChanged(FB.auth, user => {
     if (!user) { S.auth = 'out'; S.user = null; render(); return; }
+    S.signingIn = false;
     S.user = {email: String(user.email || '').toLowerCase(), name: user.displayName || ''};
     if (S.auth !== 'in') checkAccess();
   });

@@ -8,3 +8,6 @@ window.FIREBASE_CONFIG = {
   messagingSenderId: "75535710662",
   appId: "1:75535710662:web:cd6e162699dc07a9c55ac7"
 };
+
+// Google sign-in client (public too). Lets the app use Google's own "Sign in with Google" button.
+window.GOOGLE_CLIENT_ID = "75535710662-68nv06lf2kolh0p6qeqsi2jlilcrqt0u.apps.googleusercontent.com";
